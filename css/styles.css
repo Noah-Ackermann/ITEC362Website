@@ -4,11 +4,6 @@
     --third-color:#3A7CA5;
 }
 
-.logo {
-    display:inline;
-    
-}
-
 nav {
     background-color:var(--nav-color);
 }
@@ -90,6 +85,7 @@ footer ul li a:hover {
 
 body {
     background-color: var(--background-color);
+    font-family: Arial, sans-serif;
 }
 
 .block {
@@ -159,4 +155,5 @@ li {
     font-size: 45px;
     padding:4px;
 }
+
 
