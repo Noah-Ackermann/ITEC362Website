@@ -1,66 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Exercises</title>
-        <link rel="stylesheet" href="styles.css">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercises</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="Sign-up.html">Sign-Up</a></li>
+            <li><a href="exercises.html">Exercises</a></li>
+            <li><a href="tracking.html">Tracking</a></li>
+            <li><a href="index.html">Home</a></li>
+        </ul>
+    </nav>
 
-        <style>
-            .muscle-group button{
-                background-color: #4682b4;
-                border: none;
-                padding: 10px;
-                margin: 5px;
-                color: white;
-                font-weight: bold;
-                border-radius: 4px;
-            }
-            .muscle-group button:hover{
-                background-color: #315f7f;
-            }
-        </style>
-    </head>
-    <body>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="tracking.html">Tracking</a>
-            <a href="exercises.html">Exercises</a>
-            <a href="Sign-up.html">Sign-Up</a>
-        </nav>
-        <div class="container">
-            <h1>Exercises</h1>
-            <h3>Choose Muscle Group</h3>
-            <div class="muscle-group">
-                <button>Chest</button>
-                <button>Back</button>
-                <button>Legs</button>
-                <button>Triceps</button>
-                <button>Shoulders</button>
-                <button>Forearms</button>
+    <main class="container">
+        <h1>Exercises</h1>
+        <h2>Choose Muscle Group</h2>
+        <div class="center">
+            <button class="button">Chest</button>
+            <button class="button">Back</button>
+            <button class="button">Legs</button>
+            <button class="button">Triceps</button>
+            <button class="button">Shoulders</button>
+            <button class="button">Forearms</button>
+        </div>
+
+        <hr>
+        <h2>Exercise Gallery</h2>
+        <div class="exercise-section">
+            <h3>Chest</h3>
+            <div class="exercise-card">
+                <img src="https://via.placeholder.com/100" alt="Chest Press">
+                <p>Barbell Chest Press</p>
+                <button class="button">Learn More</button>
             </div>
-            <h2>Exercise Gallery</h2>
-            <div class="exercise-section">
-                <h3>Chest</h3>
-                <div class="exercise-card">
-                    <img src="https://via.placeholder.com/100" alt="Chest Press">
-                    <p>Barbell Chest Press</p>
-                    <button class="button" style="background-color:#4682b4;">Learn More</button>
-                </div>
-                <div class="exercise-card">
-                    <img src="https://via.placeholder.com/100" alt="Incline Dumbbell">
-                    <p>Incline Dumbbell Press</p>
-                    <button class="button" style="background-color:#4682b4;">Learn More</button>
-                </div>
-            </div>
-            <div class="exercise-section">
-                <h3>Back</h3>
-                <div class="exercise-card">
-                    <img src="https://via.placeholder.com/100" alt="Lat Pull Downs">
-                    <p>Lat Pull Downs</p>
-                    <button class="button" style="background-color:#4682b4;">Learn More</button>
-                </div>
+            <div class="exercise-card">
+                <img src="https://via.placeholder.com/100" alt="Incline Dumbbell">
+                <p>Incline Dumbbell Press</p>
+                <button class="button">Learn More</button>
             </div>
         </div>
-    </body>
-
+        <div class="exercise-section">
+            <h3>Back</h3>
+            <div class="exercise-card">
+                <img src="https://via.placeholder.com/100" alt="Lat Pull Downs">
+                <p>Lat Pull Downs</p>
+                <button class="button">Learn More</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <ul>
+            <li><a href="Sign-up.html">Sign-Up</a></li>
+            <li><a href="exercises.html">Exercises</a></li>
+            <li><a href="tracking.html">Tracking</a></li>
+            <li><a href="index.html">Home</a></li>
+        </ul>
+    </footer>
+</body>
 </html>
