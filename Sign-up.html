@@ -1,62 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Sign-Up</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-
-    <nav>
-        <ul>
-            <li><a href="Sign-up.html">Sign-Up</a></li>
-            <li><a href="exercises.html">Exercises</a></li>
-            <li><a href="tracking.html">Tracking</a></li>
-            <li><a href="index.html">Home</a></li>
-        </ul>
-    </nav>
-
-    <main>
-        <h1>Create Account</h1>
-
-        <div class="block center" style="max-width:500px; padding:30px;">
-            <form>
-                <label for="name"><strong>Name:</strong></label>
-                <input type="text" id="name" placeholder="Enter First and Last Name">
-
-                <label for="email"><strong>Email:</strong></label>
-                <input type="email" id="email" placeholder="Enter valid Email">
-
-                <label for="password"><strong>Password:</strong></label>
-                <input type="password" id="password" placeholder="Enter password">
-
-                <label for="confirm"><strong>Confirm Password:</strong></label>
-                <input type="password" id="confirm" placeholder="Re-enter password">
-
-                <label for="goals"><strong>Fitness Goals:</strong></label>
-                <select id="goals">
-                    <option>Weight Loss</option>
-                    <option>Muscle Gain</option>
-                    <option>General Fitness</option>
-                </select>
-
-                <div class="center" style="margin-top:20px;">
-                    <button type="submit" class="button">Create Account</button>
-                    <button type="button" class="button">Login</button>
+    <head>
+        <meta charset="UTF-8">
+        <title>Sign-Up</title>
+        <link rel="stylesheet" href="css/styles.css">
+        <style>
+            .form-container{
+                background-color:#4682b4;
+                padding: 20px;
+                margin: 30px auto;
+                width: 300px;
+                border-radius: 8px;
+                color:white;
+            }
+            .form-container label{
+                display:block;
+                margin-top: 10px;
+            }
+            .form-contrainer input, .form-container select{
+                width: 100%;
+                padding: 8px;
+                margin: 5px 0;
+                border: none;
+                border-radius: 4px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <a href="index.html"><img style="display:inline" alt="logo" src="images/logo.png" height="100" ></a>
+                <ul class="nav">
+                    <li><a href="Sign-up.html">Sign-Up</a></li>
+                    <li><a href="exercises.html">Exercises</a></li>
+                    <li><a href="tracking.html">Tracking</a></li>
+                    <li><a href="index.html">Home</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <div class="container">
+                <h1>Create Account</h1>
+                <div class="form-container">
+                    <form>
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" placeholder="Enter First and Last Name" style="border:1px solid black;">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" placeholder="Enter valid Email">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" placeholder="Enter password">
+                        <label for="confirm">Confirm Password:</label>
+                        <input type="password" id="confirm" placeholder="Re-enter password">
+                        <label for="goals">Fitness Goals:</label>
+                        <select id="goals">
+                            <option>Weight Loss</option>
+                            <option>Muscle Gain</option>
+                            <option>General Fitness</option>
+                        </select>
+                        <button type="submit" class="button">Create Account</button>
+                        <button type="button" class="button" style="background-color:#315f7f;">Login</button>
+                    </form>
                 </div>
-            </form>
-        </div>
-    </main>
-
-    <footer>
-        <ul>
-            <li><a href="Sign-up.html">Sign-Up</a></li>
-            <li><a href="exercises.html">Exercises</a></li>
-            <li><a href="tracking.html">Tracking</a></li>
-            <li><a href="index.html">Home</a></li>
-        </ul>
-    </footer>
-</body>
+            </div>
+        </main>
+        <footer>
+            <ul class="nav">
+                <li><a href="Sign-up.html">Sign-Up</a></li>
+                <li><a href="exercises.html">Exercises</a></li>
+                <li><a href="tracking.html">Tracking</a></li>
+                <li><a href="index.html">Home</a></li>
+            </ul>
+        </footer>
+    </body>
 </html>
-
-
