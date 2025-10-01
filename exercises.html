@@ -1,80 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Exercises</title>
-        <link rel="stylesheet" href="css/styles.css">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercises</title>
+    <link rel="stylesheet" href="css/styles.css">
 
-        <style>
-            .muscle-group button{
-                background-color: #4682b4;
-                border: none;
-                padding: 10px;
-                margin: 5px;
-                color: white;
-                font-weight: bold;
-                border-radius: 4px;
-            }
-            .muscle-group button:hover{
-                background-color: #315f7f;
-            }
-        </style>
-    </head>
-    <body>
-        <header>
-            <nav>
-                <a href="index.html"><img style="display:inline" alt="logo" src="images/logo.png" height="100" ></a>
-                <ul class="nav">
-                    <li><a href="Sign-up.html">Sign-Up</a></li>
-                    <li><a href="exercises.html">Exercises</a></li>
-                    <li><a href="tracking.html">Tracking</a></li>
-                    <li><a href="index.html">Home</a></li>
-                </ul>
-            </nav>
-        </header>
-        <main>
-            <div class="container">
-                <h1>Exercises</h1>
-                <h3>Choose Muscle Group</h3>
-                <div class="muscle-group">
-                    <button>Chest</button>
-                    <button>Back</button>
-                    <button>Legs</button>
-                    <button>Triceps</button>
-                    <button>Shoulders</button>
-                    <button>Forearms</button>
-                </div>
-                <h2>Exercise Gallery</h2>
-                <div class="exercise-section">
-                    <h3>Chest</h3>
-                    <div class="exercise-card">
-                        <img src="https://via.placeholder.com/100" alt="Chest Press">
-                        <p>Barbell Chest Press</p>
-                        <button class="button" style="background-color:#4682b4;">Learn More</button>
-                    </div>
-                    <div class="exercise-card">
-                        <img src="https://via.placeholder.com/100" alt="Incline Dumbbell">
-                        <p>Incline Dumbbell Press</p>
-                        <button class="button" style="background-color:#4682b4;">Learn More</button>
-                    </div>
-                </div>
-                <div class="exercise-section">
-                    <h3>Back</h3>
-                    <div class="exercise-card">
-                        <img src="https://via.placeholder.com/100" alt="Lat Pull Downs">
-                        <p>Lat Pull Downs</p>
-                        <button class="button" style="background-color:#4682b4;">Learn More</button>
-                    </div>
-                </div>
-            </div>
-        </main>
-        <footer>
+    <style>
+        .muscle-group button {
+            background-color: #4682b4;
+            border: none;
+            padding: 10px;
+            margin: 5px;
+            color: white;
+            font-weight: bold;
+            border-radius: 4px;
+        }
+        .muscle-group button:hover {
+            background-color: #315f7f;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html"><img style="display:inline" alt="logo" src="images/logo.png" height="100"></a>
             <ul class="nav">
                 <li><a href="Sign-up.html">Sign-Up</a></li>
                 <li><a href="exercises.html">Exercises</a></li>
                 <li><a href="tracking.html">Tracking</a></li>
                 <li><a href="index.html">Home</a></li>
             </ul>
-        </footer>
-    </body>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <h1>Exercises</h1>
+            <h3>Choose Muscle Group</h3>
+            <div class="muscle-group">
+                <button>Chest</button>
+                <button>Back</button>
+                <button>Legs</button>
+                <button>Triceps</button>
+                <button>Shoulders</button>
+                <button>Forearms</button>
+            </div>
+
+            <h2>Exercise Gallery</h2>
+
+            <!-- Chest -->
+            <div class="exercise-section">
+                <h3>Chest</h3>
+                <div class="exercise-card">
+                    <img src="images/chest1.jpg" alt="Barbell Chest Press" width="100">
+                    <p>Barbell Chest Press</p>
+                    <button class="button" style="background-color:#4682b4;">Learn More</button>
+                </div>
+                <div class="exercise-card">
+                    <img src="images/chest2.jpg" alt="Incline Dumbbell Press" width="100">
+                    <p>Incline Dumbbell Press</p>
+                    <button class="button" style="background-color:#4682b4;">Learn More</button>
+                </div>
+                <div class="exercise-card">
+                    <img src="images/chest3.jpg" alt="Pec Fly" width="100">
+                    <p>Pec Fly</p>
+                    <button class="button" style="background-color:#4682b4;">Learn More</button>
+                </div>
+            </div>
+
+            <!-- Back -->
+            <div class="exercise-section">
+                <h3>Back</h3>
+                <div class="exercise-card">
+                    <img src="images/back1.jpg" alt="Lat Pulldown" width="100">
+                    <p>Lat Pulldown</p>
+                    <button class="button" style="background-color:#4682b4;">Learn More</button>
+                </div>
+                <div class="exercise-card">
+                    <img src="images/back2.jpg" alt="Seated Mid Row" width="100">
+                    <p>Seated Mid Row</p>
+                    <button class="button" style="background-color:#4682b4;">Learn More</button>
+                </div>
+                <div class="exercise-card">
+                    <img src="images/back3.jpg" alt="Low Row" width="100">
+                    <p>Low Row</p>
+                    <button class="button" style="background-color:#4682b4;">Learn More</button>
+                </div>
+            </div>
+
+            <!-- Legs -->
+            <div class="exercise-section">
+                <h3>Legs</h3>
+                <div class="exercise-card">
+                    <img src="images/legs1.jpg" alt="Hack Squat" width="100">
+                    <p>Hack Squat</p>
+                    <button class="button" style="background-color:#4682b4;">Learn More</button>
+                </div>
+                <div class="exercise-card">
+                    <img src="images/legs2.jpg" alt="Leg Extension" width="100">
+                    <p>Leg Extension</p>
+                    <button class="button" style="background-color:#4682b4;">Learn More</button>
+                </div>
+                <div class="exercise-card">
+                    <img src="images/legs3.jpg" alt="Hip Thrust" width="100">
+                    <p>Hip Thrust</p>
+                    <button class="button" style="background-color:#4682b4;">Learn More</button>
+                </div>
+            </div>
+
+            <!-- Triceps -->
+            <div class="exercise-section">
+                <h3>Triceps</h3>
+                <div class="exercise-card">
+                    <img src="images/triceps1.jpg" alt="Skull Crusher" width="100">
+                    <p>Skull Crusher</p>
+                    <button class="button" style="background-color:#4682b4;">Learn More</button>
+                </div>
+                <div class="exercise-card">
+                    <img src="images/triceps2.jpg" alt="Tricep Pushdown" width="100">
+                    <p>Tricep Pushdown</p>
+                    <button class="button" style="background-color:#4682b4;">Learn More</button>
+                </div>
+                <div class="exercise-card">
+                    <img src="images/triceps3.jpg" alt="Single Arm Extension" width="100">
+                    <p>Single Arm Extension</p>
+                    <button class="button" style="background-color:#4682b4;">Learn More</button>
+                </div>
+            </div>
+
+            <!-- Shoulders -->
+            <div class="exercise-section">
+                <h3>Shoulders</h3>
+                <div class="exercise-card">
+                    <img src="images/shoulders1.jpg" alt="Overhead Press" width="100">
+                    <p>Overhead Press</p>
+                    <button class="button" style="background-color:#4682b4;">Learn More</button>
+                </div>
+                <div class="exercise-card">
+                    <img src="images/shoulders2.jpg" alt="Lateral Raise" width="100">
+                    <p>Lateral Raise</p>
+                    <button class="button" style="background-color:#4682b4;">Learn More</button>
+                </div>
+                <div class="exercise-card">
+                    <img src="images/shoulders3.jpg" alt="Rear Delt Fly" width="100">
+                    <p>Rear Delt Fly</p>
+                    <button class="button" style="background-color:#4682b4;">Learn More</button>
+                </div>
+            </div>
+
+            <!-- Forearms -->
+            <div class="exercise-section">
+                <h3>Forearms</h3>
+                <div class="exercise-card">
+                    <img src="images/forearms1.jpg" alt="Wrist Curl" width="100">
+                    <p>Wrist Curl</p>
+                    <button class="button" style="background-color:#4682b4;">Learn More</button>
+                </div>
+                <div class="exercise-card">
+                    <img src="images/forearms2.jpg" alt="Reverse Curl" width="100">
+                    <p>Reverse Curl</p>
+                    <button class="button" style="background-color:#4682b4;">Learn More</button>
+                </div>
+                <div class="exercise-card">
+                    <img src="images/forearms3.jpg" alt="Farmer's Carry" width="100">
+                    <p>Farmer's Carry</p>
+                    <button class="button" style="background-color:#4682b4;">Learn More</button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <footer>
+        <ul class="nav">
+            <li><a href="Sign-up.html">Sign-Up</a></li>
+            <li><a href="exercises.html">Exercises</a></li>
+            <li><a href="tracking.html">Tracking</a></li>
+            <li><a href="index.html">Home</a></li>
+        </ul>
+    </footer>
+</body>
 </html>
