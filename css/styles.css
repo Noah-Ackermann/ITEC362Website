@@ -126,8 +126,8 @@ p {
 /* list class for formatting certain lists on our pages */
 .list {
     float:left;
-    margin-left:25px;
-    margin-right:25px;
+    margin-left:30px;
+    margin-right:30px;
 }
 
 /* formatting for the horizontal dividers on our pages */
@@ -194,6 +194,7 @@ li {
     border-radius: 8px;
     text-align: center;
 }
+
 
 
 
