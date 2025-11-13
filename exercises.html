@@ -41,6 +41,38 @@
         html {
             scroll-behavior: smooth;
         }
+
+        /* New CSS for background image cards */
+        .exercise-card {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 15px;
+            display: inline-block;
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            color: white;
+            text-align: center;
+            vertical-align: top;
+        }
+
+        .exercise-card p {
+            position: absolute;
+            bottom: 40px;
+            width: 100%;
+            font-weight: bold;
+            font-size: 18px;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+        }
+
+        .exercise-card .learn-more {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
     </style>
 </head>
 <body>
@@ -74,21 +106,15 @@
         <!-- Chest -->
         <div class="exercise-section" id="chest">
             <h3>Chest</h3>
-            <div class="exercise-card">
-                <img src="images/chest1.jpg" alt="Barbell Chest Press" width="100">
-                <img src="https://example.com/images/barbell-bench-press-illustration.jpg" alt="Barbell Bench Press illustration" width="100">
+            <div class="exercise-card" style="background-image: url('images/chest1.jpg');">
                 <p>Barbell Chest Press</p>
                 <a href="https://www.youtube.com/watch?v=ejI1Nlsul9k" target="_blank" class="learn-more">Learn More</a>
             </div>
-            <div class="exercise-card">
-                <img src="images/chest2.jpg" alt="Incline Dumbbell Press" width="100">
-                <img src="https://example.com/images/incline-dumbbell-press-illustration.jpg" alt="Incline Dumbbell Press illustration" width="100">
+            <div class="exercise-card" style="background-image: url('images/chest2.jpg');">
                 <p>Incline Dumbbell Press</p>
                 <a href="https://www.youtube.com/watch?v=jMQA3XtJSgo" target="_blank" class="learn-more">Learn More</a>
             </div>
-            <div class="exercise-card">
-                <img src="images/chest3.jpg" alt="Pec Fly" width="100">
-                <img src="https://example.com/images/pec-fly-illustration.jpg" alt="Pec Fly illustration" width="100">
+            <div class="exercise-card" style="background-image: url('images/chest3.jpg');">
                 <p>Pec Fly</p>
                 <a href="https://www.youtube.com/watch?v=eGjt4lk6g34" target="_blank" class="learn-more">Learn More</a>
             </div>
@@ -97,21 +123,15 @@
         <!-- Back -->
         <div class="exercise-section" id="back">
             <h3>Back</h3>
-            <div class="exercise-card">
-                <img src="images/back1.jpg" alt="Lat Pulldown" width="100">
-                <img src="https://example.com/images/lat-pulldown-illustration.jpg" alt="Lat Pulldown illustration" width="100">
+            <div class="exercise-card" style="background-image: url('images/back1.jpg');">
                 <p>Lat Pulldown</p>
                 <a href="https://www.youtube.com/watch?v=JGeRYIZdojU" target="_blank" class="learn-more">Learn More</a>
             </div>
-            <div class="exercise-card">
-                <img src="images/back2.jpg" alt="Seated Mid Row" width="100">
-                <img src="https://example.com/images/seated-mid-row-illustration.jpg" alt="Seated Mid Row illustration" width="100">
+            <div class="exercise-card" style="background-image: url('images/back2.jpg');">
                 <p>Seated Mid Row</p>
                 <a href="https://www.youtube.com/watch?v=UCXxvVItLoM" target="_blank" class="learn-more">Learn More</a>
             </div>
-            <div class="exercise-card">
-                <img src="images/back3.jpg" alt="Low Row" width="100">
-                <img src="https://example.com/images/low-row-illustration.jpg" alt="Low Row illustration" width="100">
+            <div class="exercise-card" style="background-image: url('images/back3.jpg');">
                 <p>Low Row</p>
                 <a href="https://www.youtube.com/watch?v=opjbouBmUWg" target="_blank" class="learn-more">Learn More</a>
             </div>
@@ -120,21 +140,15 @@
         <!-- Legs -->
         <div class="exercise-section" id="legs">
             <h3>Legs</h3>
-            <div class="exercise-card">
-                <img src="images/legs1.jpg" alt="Hack Squat" width="100">
-                <img src="https://example.com/images/hack-squat-illustration.jpg" alt="Hack Squat illustration" width="100">
+            <div class="exercise-card" style="background-image: url('images/legs1.jpg');">
                 <p>Hack Squat</p>
                 <a href="https://www.youtube.com/watch?v=rYgNArpwE7E" target="_blank" class="learn-more">Learn More</a>
             </div>
-            <div class="exercise-card">
-                <img src="images/legs2.jpg" alt="Leg Extension" width="100">
-                <img src="https://example.com/images/leg-extension-illustration.jpg" alt="Leg Extension illustration" width="100">
+            <div class="exercise-card" style="background-image: url('images/legs2.jpg');">
                 <p>Leg Extension</p>
                 <a href="https://www.youtube.com/watch?v=4ZDm5EbiFI8" target="_blank" class="learn-more">Learn More</a>
             </div>
-            <div class="exercise-card">
-                <img src="images/legs3.jpg" alt="Hip Thrust" width="100">
-                <img src="https://example.com/images/hip-thrust-illustration.jpg" alt="Hip Thrust illustration" width="100">
+            <div class="exercise-card" style="background-image: url('images/legs3.jpg');">
                 <p>Hip Thrust</p>
                 <a href="https://www.youtube.com/watch?v=aweBS7K71l8" target="_blank" class="learn-more">Learn More</a>
             </div>
@@ -143,21 +157,15 @@
         <!-- Triceps -->
         <div class="exercise-section" id="triceps">
             <h3>Triceps</h3>
-            <div class="exercise-card">
-                <img src="images/triceps1.jpg" alt="Skull Crusher" width="100">
-                <img src="https://example.com/images/skull-crusher-illustration.jpg" alt="Skull Crusher illustration" width="100">
+            <div class="exercise-card" style="background-image: url('images/triceps1.jpg');">
                 <p>Skull Crusher</p>
                 <a href="https://www.youtube.com/watch?v=TsduLWuhlFM" target="_blank" class="learn-more">Learn More</a>
             </div>
-            <div class="exercise-card">
-                <img src="images/triceps2.jpg" alt="Tricep Pushdown" width="100">
-                <img src="https://example.com/images/tricep-pushdown-illustration.jpg" alt="Tricep Pushdown illustration" width="100">
+            <div class="exercise-card" style="background-image: url('images/triceps2.jpg');">
                 <p>Tricep Pushdown</p>
                 <a href="https://www.youtube.com/watch?v=XPPfnSEATJA" target="_blank" class="learn-more">Learn More</a>
             </div>
-            <div class="exercise-card">
-                <img src="images/triceps3.jpg" alt="Single Arm Extension" width="100">
-                <img src="https://example.com/images/single-arm-extension-illustration.jpg" alt="Single Arm Extension illustration" width="100">
+            <div class="exercise-card" style="background-image: url('images/triceps3.jpg');">
                 <p>Single Arm Extension</p>
                 <a href="https://www.youtube.com/watch?v=nlkF7_2O_Lw" target="_blank" class="learn-more">Learn More</a>
             </div>
@@ -166,21 +174,15 @@
         <!-- Shoulders -->
         <div class="exercise-section" id="shoulders">
             <h3>Shoulders</h3>
-            <div class="exercise-card">
-                <img src="images/shoulders1.jpg" alt="Overhead Press" width="100">
-                <img src="https://example.com/images/overhead-press-illustration.jpg" alt="Overhead Press illustration" width="100">
+            <div class="exercise-card" style="background-image: url('images/shoulders1.jpg');">
                 <p>Overhead Press</p>
                 <a href="https://www.youtube.com/watch?v=3VLTzIrnb5g" target="_blank" class="learn-more">Learn More</a>
             </div>
-            <div class="exercise-card">
-                <img src="images/shoulders2.jpg" alt="Lateral Raise" width="100">
-                <img src="https://example.com/images/lateral-raise-illustration.jpg" alt="Lateral Raise illustration" width="100">
+            <div class="exercise-card" style="background-image: url('images/shoulders2.jpg');">
                 <p>Lateral Raise</p>
                 <a href="https://www.youtube.com/watch?v=kPXvDlFNb3s" target="_blank" class="learn-more">Learn More</a>
             </div>
-            <div class="exercise-card">
-                <img src="images/shoulders3.jpg" alt="Rear Delt Fly" width="100">
-                <img src="https://example.com/images/rear-delt-fly-illustration.jpg" alt="Rear Delt Fly illustration" width="100">
+            <div class="exercise-card" style="background-image: url('images/shoulders3.jpg');">
                 <p>Rear Delt Fly</p>
                 <a href="https://www.youtube.com/watch?v=8OtwXwrJizk" target="_blank" class="learn-more">Learn More</a>
             </div>
@@ -189,21 +191,15 @@
         <!-- Forearms -->
         <div class="exercise-section" id="forearms">
             <h3>Forearms</h3>
-            <div class="exercise-card">
-                <img src="images/forearms1.jpg" alt="Wrist Curl" width="100">
-                <img src="https://example.com/images/wrist-curl-illustration.jpg" alt="Wrist Curl illustration" width="100">
+            <div class="exercise-card" style="background-image: url('images/forearms1.jpg');">
                 <p>Wrist Curl</p>
                 <a href="https://www.youtube.com/watch?v=3VLTzIrnb5g" target="_blank" class="learn-more">Learn More</a>
             </div>
-            <div class="exercise-card">
-                <img src="images/forearms2.jpg" alt="Reverse Curl" width="100">
-                <img src="https://example.com/images/reverse-curl-illustration.jpg" alt="Reverse Curl illustration" width="100">
+            <div class="exercise-card" style="background-image: url('images/forearms2.jpg');">
                 <p>Reverse Curl</p>
                 <a href="https://www.youtube.com/watch?v=kPXvDlFNb3s" target="_blank" class="learn-more">Learn More</a>
             </div>
-            <div class="exercise-card">
-                <img src="images/forearms3.jpg" alt="Farmer's Carry" width="100">
-                <img src="https://example.com/images/farmers-carry-illustration.jpg" alt="Farmer's Carry illustration" width="100">
+            <div class="exercise-card" style="background-image: url('images/forearms3.jpg');">
                 <p>Farmer's Carry</p>
                 <a href="https://www.youtube.com/watch?v=8OtwXwrJizk" target="_blank" class="learn-more">Learn More</a>
             </div>
@@ -212,22 +208,20 @@
         <!-- Biceps -->
         <div class="exercise-section" id="biceps">
             <h3>Biceps</h3>
-            <div class="exercise-card">
-                <img src="images/biceps1.jpg" alt="Bicep Curl" width="100">
+            <div class="exercise-card" style="background-image: url('images/biceps1.jpg');">
                 <p>Bicep Curl</p>
                 <a href="https://www.youtube.com/watch?v=N5x5M1x1Gd0" target="_blank" class="learn-more">Learn More</a>
             </div>
-            <div class="exercise-card">
-                <img src="images/biceps2.jpg" alt="Hammer Curl" width="100">
+            <div class="exercise-card" style="background-image: url('images/biceps2.jpg');">
                 <p>Hammer Curl</p>
                 <a href="https://www.youtube.com/watch?v=RIEMoYL_h1Y" target="_blank" class="learn-more">Learn More</a>
             </div>
-            <div class="exercise-card">
-                <img src="images/biceps3.jpg" alt="Preacher Curl" width="100">
+            <div class="exercise-card" style="background-image: url('images/biceps3.jpg');">
                 <p>Preacher Curl</p>
                 <a href="https://www.youtube.com/watch?v=dgaJQXa0kbg" target="_blank" class="learn-more">Learn More</a>
             </div>
         </div>
+
     </div>
 </main>
 <footer>
@@ -240,5 +234,7 @@
 </footer>
 </body>
 </html>
+
+
 
 
