@@ -79,35 +79,8 @@
             background-color: #315f7f;
         }
 
-        /* Footer styling */
-        footer {
-            background-color: #f1f1f1;
-            padding: 15px 0;
-            text-align: center;
-            width: 100%;
-            clear: both;
-            box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
-        }
-
-        footer .nav {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        footer .nav li {
-            display: inline;
-            margin: 0 15px;
-        }
-
-        footer .nav li a {
-            text-decoration: none;
-            color: #4682b4;
-            font-weight: bold;
-        }
-
-        footer .nav li a:hover {
-            color: #315f7f;
+        html {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
@@ -125,7 +98,13 @@
 </header>
 <main>
     <div class="container">
-        <h1>Exercises</h1>
+        <!-- Title with logos on both sides -->
+        <div style="display: flex; align-items: center; justify-content: center; gap: 20px; margin: 20px 0;">
+            <img src="images/logo.png" alt="logo" height="100">
+            <h1 style="margin:0;">Exercises</h1>
+            <img src="images/logo.png" alt="logo" height="100">
+        </div>
+
         <h3 style="text-align:center;">Choose Muscle Group</h3>
         <div class="muscle-group">
             <button onclick="location.href='#chest'">Chest</button>
@@ -261,12 +240,21 @@
     </div>
 </main>
 
+<!-- Matching Footer Navigation -->
 <footer>
-    <ul class="nav">
-        <li><a href="Sign-up.html">Sign-Up</a></li>
-        <li><a href="exercises.html">Exercises</a></li>
-        <li><a href="tracking.html">Tracking</a></li>
-        <li><a href="index.html">Home</a></li>
+    <ul style="list-style-type:none; margin:0; padding:0; overflow:hidden; background-color:#141B41;">
+        <li style="float:right; text-transform:capitalize;">
+            <a href="Sign-up.html" style="display:block; color:white; text-align:center; padding:14px 70px; text-decoration:none; font-size:60px;">Sign-Up</a>
+        </li>
+        <li style="float:right; text-transform:capitalize;">
+            <a href="exercises.html" style="display:block; color:white; text-align:center; padding:14px 70px; text-decoration:none; font-size:60px;">Exercises</a>
+        </li>
+        <li style="float:right; text-transform:capitalize;">
+            <a href="tracking.html" style="display:block; color:white; text-align:center; padding:14px 70px; text-decoration:none; font-size:60px;">Tracking</a>
+        </li>
+        <li style="float:right; text-transform:capitalize;">
+            <a href="index.html" style="display:block; color:white; text-align:center; padding:14px 70px; text-decoration:none; font-size:60px;">Home</a>
+        </li>
     </ul>
 </footer>
 
