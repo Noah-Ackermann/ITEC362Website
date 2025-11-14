@@ -4,16 +4,15 @@
         <meta charset="UTF-8">
         <title>Sign-Up</title>
         <link rel="stylesheet" href="css/styles.css">
+
         <style>
-            /* Keep your existing styles */
             .form-container {
                 background-color: rgba(70, 130, 180, 0.9);
                 padding: 20px;
-                margin: 30px auto;
+                margin: 30px auto 0;
                 width: 300px;
                 border-radius: 8px;
                 color: white;
-                position: relative;
                 text-align: left;
                 box-shadow: 0 4px 8px rgba(0,0,0,0.3);
             }
@@ -32,19 +31,24 @@
                 border-radius: 4px;
             }
 
-            /* Background logo behind the form and title */
             .container {
-                background-image: url('images/logo.png');
-                background-repeat: no-repeat;
-                background-position: center;
-                background-size: 400px;
-                padding: 60px 0;
                 text-align: center;
                 min-height: 80vh;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-content: flex-start;
+                margin-top: 40px;
+            }
+
+            .logo-wrapper {
+                background-image: url('images/logo.png');
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: 450px;
+                padding: 60px;
+                border-radius: 12px;
+                display: inline-block;
             }
 
             .container h1 {
@@ -56,8 +60,62 @@
                 border-radius: 8px;
                 display: inline-block;
             }
+
+            /* ---------------------- */
+            /* LOGIN POPUP STYLES     */
+            /* ---------------------- */
+
+            .overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.6);
+                z-index: 999;
+            }
+
+            .login-popup {
+                display: none;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: white;
+                padding: 25px;
+                width: 300px;
+                border-radius: 10px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+                z-index: 1000;
+                text-align: center;
+            }
+
+            .login-popup h2 {
+                margin-bottom: 15px;
+                color: #141B41;
+            }
+
+            .login-popup input {
+                width: 100%;
+                padding: 10px;
+                margin: 8px 0;
+                border: 1px solid #333;
+                border-radius: 5px;
+            }
+
+            .close-btn {
+                position: absolute;
+                top: 8px;
+                right: 12px;
+                cursor: pointer;
+                font-size: 20px;
+                font-weight: bold;
+                color: #333;
+            }
         </style>
     </head>
+
     <body>
         <header>
             <nav>
@@ -73,31 +131,40 @@
 
         <main>
             <div class="container">
-                <h1>Create Account</h1>
-                <div class="form-container">
-                    <form>
-                        <label for="name">Name:</label>
-                        <input type="text" id="name" placeholder="Enter First and Last Name" style="border:1px solid black;">
-                        
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" placeholder="Enter valid Email">
-                        
-                        <label for="password">Password:</label>
-                        <input type="password" id="password" placeholder="Enter password">
-                        
-                        <label for="confirm">Confirm Password:</label>
-                        <input type="password" id="confirm" placeholder="Re-enter password">
-                        
-                        <label for="goals">Fitness Goals:</label>
-                        <select id="goals">
-                            <option>Weight Loss</option>
-                            <option>Muscle Gain</option>
-                            <option>General Fitness</option>
-                        </select>
-                        
-                        <button type="submit" class="button">Create Account</button>
-                        <button type="button" class="button" style="background-color:#315f7f;">Login</button>
-                    </form>
+                <div class="logo-wrapper">
+
+                    <h1>Create Account</h1>
+
+                    <div class="form-container">
+                        <form>
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" placeholder="Enter First and Last Name" style="border:1px solid black;">
+                            
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" placeholder="Enter valid Email">
+                            
+                            <label for="password">Password:</label>
+                            <input type="password" id="password" placeholder="Enter password">
+                            
+                            <label for="confirm">Confirm Password:</label>
+                            <input type="password" id="confirm" placeholder="Re-enter password">
+                            
+                            <label for="goals">Fitness Goals:</label>
+                            <select id="goals">
+                                <option>Weight Loss</option>
+                                <option>Muscle Gain</option>
+                                <option>General Fitness</option>
+                            </select>
+                            
+                            <button type="submit" class="button">Create Account</button>
+
+                            <!-- LOGIN BUTTON OPENS POPUP -->
+                            <button type="button" id="openLogin" class="button" style="background-color:#315f7f;">
+                                Login
+                            </button>
+                        </form>
+                    </div>
+
                 </div>
             </div>
         </main>
@@ -110,5 +177,41 @@
                 <li><a href="index.html">Home</a></li>
             </ul>
         </footer>
+
+        <!-- DARK OVERLAY -->
+        <div class="overlay" id="overlay"></div>
+
+        <!-- LOGIN POPUP -->
+        <div class="login-popup" id="loginPopup">
+            <span class="close-btn" id="closePopup">&times;</span>
+            <h2>Login</h2>
+
+            <input type="email" placeholder="Enter Email">
+            <input type="password" placeholder="Enter Password">
+
+            <button class="button" style="width:100%; margin-top:10px;">Login</button>
+        </div>
+
+        <script>
+            const openBtn = document.getElementById("openLogin");
+            const closeBtn = document.getElementById("closePopup");
+            const popup = document.getElementById("loginPopup");
+            const overlay = document.getElementById("overlay");
+
+            openBtn.onclick = () => {
+                popup.style.display = "block";
+                overlay.style.display = "block";
+            };
+
+            closeBtn.onclick = () => {
+                popup.style.display = "none";
+                overlay.style.display = "none";
+            };
+
+            overlay.onclick = () => {
+                popup.style.display = "none";
+                overlay.style.display = "none";
+            };
+        </script>
     </body>
 </html>
