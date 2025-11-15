@@ -29,7 +29,6 @@
             scroll-behavior: smooth;
         }
 
-        /* New CSS for background image cards */
         .exercise-card {
             position: relative;
             width: 200px;
@@ -46,7 +45,6 @@
             overflow: hidden;
         }
 
-        /* Exercise Name at Top */
         .exercise-card .exercise-name {
             position: absolute;
             top: 0;
@@ -60,7 +58,6 @@
             text-align: center;
         }
 
-        /* Learn More button at Bottom */
         .exercise-card .learn-more {
             position: absolute;
             bottom: 10px;
@@ -78,10 +75,6 @@
         .exercise-card .learn-more:hover {
             background-color: #315f7f;
         }
-
-        html {
-            scroll-behavior: smooth;
-        }
     </style>
 </head>
 <body>
@@ -96,9 +89,10 @@
         </ul>
     </nav>
 </header>
+
 <main>
     <div class="container">
-        <!-- Title with logos on both sides -->
+
         <div style="display: flex; align-items: center; justify-content: center; gap: 20px; margin: 20px 0;">
             <img src="images/logo.png" alt="logo" height="100">
             <h1 style="margin:0;">Exercises</h1>
@@ -106,20 +100,24 @@
         </div>
 
         <h3 style="text-align:center;">Choose Muscle Group</h3>
+
+        <!-- Updated Buttons for Toggle -->
         <div class="muscle-group">
-            <button onclick="location.href='#chest'">Chest</button>
-            <button onclick="location.href='#back'">Back</button>
-            <button onclick="location.href='#legs'">Legs</button>
-            <button onclick="location.href='#triceps'">Triceps</button>
-            <button onclick="location.href='#shoulders'">Shoulders</button>
-            <button onclick="location.href='#forearms'">Forearms</button>
-            <button onclick="location.href='#biceps'">Biceps</button>
+            <button data-target="chest">Chest</button>
+            <button data-target="back">Back</button>
+            <button data-target="legs">Legs</button>
+            <button data-target="triceps">Triceps</button>
+            <button data-target="shoulders">Shoulders</button>
+            <button data-target="forearms">Forearms</button>
+            <button data-target="biceps">Biceps</button>
         </div>
 
-        <!-- Exercise Gallery Section -->
+        <!-- Exercise Gallery -->
         <h2>Exercise Gallery</h2>
         <p style="text-align:center; font-size:18px; margin-top:-10px; margin-bottom:20px;">
-    Click learn more to see video demonstrations of each exercise</p>
+            Click learn more to see video demonstrations of each exercise
+        </p>
+
         <!-- Chest -->
         <div class="exercise-section" id="chest">
             <h3>Chest</h3>
@@ -238,10 +236,10 @@
                 <a href="https://www.youtube.com/watch?v=dgaJQXa0kbg" target="_blank" class="learn-more">Learn More</a>
             </div>
         </div>
+
     </div>
 </main>
 
-<!-- Matching Footer Navigation -->
 <footer>
     <ul style="list-style-type:none; margin:0; padding:0; overflow:hidden; background-color:#141B41;">
         <li style="float:right; text-transform:capitalize;">
@@ -259,8 +257,36 @@
     </ul>
 </footer>
 
+<!-- Toggle Script -->
+<script>
+    const buttons = document.querySelectorAll('.muscle-group button');
+    const sections = document.querySelectorAll('.exercise-section');
+
+    let activeGroup = null;
+
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            const target = button.getAttribute('data-target');
+
+            if (activeGroup === target) {
+                sections.forEach(section => section.style.display = "block");
+                activeGroup = null;
+                return;
+            }
+
+            sections.forEach(section => {
+                section.style.display = (section.id === target) ? "block" : "none";
+            });
+
+            activeGroup = target;
+        });
+    });
+</script>
+
 </body>
 </html>
+
+
 
 
 
