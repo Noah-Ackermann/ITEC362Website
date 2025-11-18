@@ -1,21 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Steel Tracking - Sign-Up</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Form page for signing up or signing in.">
+    <!-- ============================
+         META (SEO + MOBILE + BASIC)
+         ============================ -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Form page for signing up or signing in to Steel Tracking.">
     <meta name="author" content="Pierce Cederquist">
+    <meta name="keywords" content="sign up, login, fitness, tracking, workouts">
+    <title>Steel Tracking - Sign-Up</title>
+
+    <!-- External stylesheet (unchanged) -->
     <link rel="stylesheet" href="css/styles.css">
 
+    <!-- ============================
+         INTERNAL CSS (page-specific)
+         NOTE: This preserves your visual look while adding
+         a few small styles for modal accessibility.
+         ============================ -->
     <style>
-        /* ----- HEADER ----- */
+        /* ----- Header nav (page-specific comments) ----- */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 15px 40px;
-            background-color: #141B41;
+            background-color: #141B41; /* kept from original design */
         }
 
         nav img { height: 70px; }
@@ -37,7 +48,7 @@
 
         nav .nav li a:hover { background-color: #313b83; }
 
-        /* ----- FOOTER ----- */
+        /* ----- Footer (kept visual design) ----- */
         footer {
             background-color: #141B41;
             color: white;
@@ -84,10 +95,9 @@
             opacity: 0.8;
         }
 
-
-        /* ---------- PAGE BACKGROUND ---------- */
+        /* ---------- PAGE BACKGROUND (visual preserved) ---------- */
         main {
-            background-image: url('images/gym-bg.jpg');
+            background-image: url('images/gym-bg.jpg'); /* user-confirmed path */
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -95,7 +105,7 @@
             position: relative;
         }
 
-        
+        /* Overlay ensures form is legible on top of background */
         main::before {
             content: "";
             position: absolute;
@@ -105,14 +115,9 @@
             z-index: 1;
         }
 
-       
-        .container {
-            position: relative;
-            z-index: 2;
-        }
+        .container { position: relative; z-index: 2; }
 
-
-        /* ---------- FORMS & LAYOUT ---------- */
+        /* ---------- FORMS & LAYOUT (kept same look/spacing) ---------- */
         .form-container {
             background-color: rgba(70, 130, 180, 0.9);
             padding: 20px;
@@ -127,6 +132,8 @@
         .form-container label {
             display: block;
             margin-top: 10px;
+            font-weight: 600;
+            font-size: 14px;
         }
 
         .form-container input,
@@ -144,6 +151,7 @@
             justify-content: center;
             align-items: flex-start;
             margin-top: 20px;
+            flex-wrap: wrap; /* responsive fallback */
         }
 
         .split-column {
@@ -160,83 +168,159 @@
             text-shadow: 1px 1px 4px black;
             margin-bottom: 10px;
         }
+
+        /* ---------- BUTTON (keeps original style assumed in site CSS) ---------- */
+        .button {
+            display: inline-block;
+            padding: 10px 16px;
+            background-color: #1e73be;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 8px;
+        }
+
+        .button:focus {
+            outline: 3px solid #ffd54f; /* visible focus for accessibility */
+            outline-offset: 2px;
+        }
+
+        /* ===========================
+           LOGIN MODAL (page-specific)
+           Accessible, keyboard-focusable modal.
+           Visual styling preserves overall site look.
+           =========================== */
+        .modal-backdrop {
+            display: none; /* toggled by JS */
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.6);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal {
+            background: rgba(70,130,180,0.98);
+            padding: 22px;
+            width: 320px;
+            border-radius: 8px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+            color: white;
+        }
+        .modal h2 { margin-top: 0; }
+        .modal .close-btn {
+            background: transparent;
+            border: none;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            position: absolute;
+            right: 18px;
+            top: 12px;
+            cursor: pointer;
+        }
+        /* Keep modal responsive on small screens */
+        @media (max-width: 700px) {
+            .split-wrapper { flex-direction: column; gap: 20px; }
+            .form-container { width: 92%; }
+            .modal { width: 92%; }
+        }
     </style>
 </head>
 
 <body>
-
+<!-- PAGE HEADER (semantic + consistent) -->
 <header>
-    <nav>
-        <a href="index.html"><img alt="logo" src="images/logo.png"></a>
-        <a href="index.html" style="color:white; font-size:40px; text-decoration:none; font-weight:bold;">Steel Tracking</a>
-        <ul class="nav">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="exercises.html">Exercises</a></li>
-            <li><a href="tracking.html">Tracking</a></li>
-            <li><a href="Sign-up.html">Sign-Up</a></li>
+    <nav aria-label="Primary Navigation">
+        <a href="index.html">
+            <img src="images/logo.png" alt="Steel Tracking logo" loading="lazy">
+        </a>
+
+        <a href="index.html" style="color:white; font-size:40px; text-decoration:none; font-weight:bold;" aria-label="Steel Tracking home link">Steel Tracking</a>
+
+        <ul class="nav" role="menubar" aria-label="Main menu">
+            <li role="none"><a role="menuitem" href="index.html">Home</a></li>
+            <li role="none"><a role="menuitem" href="exercises.html">Exercises</a></li>
+            <li role="none"><a role="menuitem" href="tracking.html">Tracking</a></li>
+            <li role="none"><a role="menuitem" href="Sign-up.html" aria-current="page">Sign-Up</a></li>
         </ul>
     </nav>
 </header>
 
+<!-- MAIN: background + two-column form layout (visual preserved) -->
 <main>
     <div class="container">
 
-        <div class="split-wrapper">
+        <!-- Split wrapper: left = create account, right = returning user -->
+        <div class="split-wrapper" aria-live="polite">
 
-            <!-- LEFT SIDE -->
-            <div class="split-column">
-                <h1>Create Account</h1>
+            <!-- LEFT SIDE: CREATE ACCOUNT -->
+            <section class="split-column" aria-labelledby="createAccountHeading">
+                <h1 id="createAccountHeading">Create Account</h1>
 
-                <div class="form-container">
-                    <form>
-                        <label>Name:</label>
-                        <input type="text" placeholder="Enter First and Last Name" style="border:1px solid black;">
+                <div class="form-container" role="region" aria-labelledby="createAccountHeading">
+                    <!-- NOTE: action="#" for demo; server action can be added later -->
+                    <form id="signupForm" novalidate>
+                        <!-- Full name: labeled and required -->
+                        <label for="fullName">Name:</label>
+                        <input id="fullName" name="fullName" type="text" placeholder="Enter First and Last Name" aria-required="true" required>
 
-                        <label>Email:</label>
-                        <input type="email" placeholder="Enter valid Email">
+                        <!-- Email: uses type=email for built-in validation -->
+                        <label for="signupEmail">Email:</label>
+                        <input id="signupEmail" name="email" type="email" placeholder="Enter a valid email" aria-required="true" required>
 
-                        <label>Password:</label>
-                        <input type="password" placeholder="Enter password">
+                        <!-- Password fields: pattern + minlength for basic strength -->
+                        <label for="signupPassword">Password:</label>
+                        <input id="signupPassword" name="password" type="password" placeholder="Enter password (min 8 chars)" minlength="8" aria-required="true" required>
 
-                        <label>Confirm Password:</label>
-                        <input type="password" placeholder="Re-enter password">
+                        <label for="confirmPassword">Confirm Password:</label>
+                        <input id="confirmPassword" name="confirmPassword" type="password" placeholder="Re-enter password" minlength="8" aria-required="true" required>
 
-                        <label>Fitness Goals:</label>
-                        <select>
-                            <option>Weight Loss</option>
-                            <option>Muscle Gain</option>
-                            <option>General Fitness</option>
+                        <!-- Fitness goals: accessible select -->
+                        <label for="fitnessGoals">Fitness Goals:</label>
+                        <select id="fitnessGoals" name="fitnessGoals" aria-required="true" required>
+                            <option value="">Select a goal</option>
+                            <option value="weight-loss">Weight Loss</option>
+                            <option value="muscle-gain">Muscle Gain</option>
+                            <option value="general-fitness">General Fitness</option>
                         </select>
 
-                        <button type="submit" class="button">Create Account</button>
+                        <!-- Submit button: uses class "button" to preserve styling -->
+                        <button type="submit" class="button" aria-label="Create account">Create Account</button>
+
+                        <!-- Inline helper text for validation feedback (populated by JS) -->
+                        <div id="signupFeedback" role="status" aria-live="assertive" style="margin-top:8px;"></div>
                     </form>
                 </div>
-            </div>
+            </section>
 
-            <!-- RIGHT SIDE -->
-            <div class="split-column">
-                <h1>Returning Users</h1>
+            <!-- RIGHT SIDE: RETURNING USERS (kept look; Login opens modal) -->
+            <section class="split-column" aria-labelledby="returningUsersHeading">
+                <h1 id="returningUsersHeading">Returning Users</h1>
 
-                <div class="form-container">
-                    <form>
-                        <label>Email:</label>
-                        <input type="email" placeholder="Enter Email">
+                <div class="form-container" role="region" aria-labelledby="returningUsersHeading">
+                    <!-- We keep a small form visually but the Login button will open a focused modal.
+                         This preserves the layout while improving UX and accessibility. -->
+                    <form id="returningForm" onsubmit="return false;">
+                        <label for="returningEmail">Email:</label>
+                        <input id="returningEmail" name="returningEmail" type="email" placeholder="Enter Email">
 
-                        <label>Password:</label>
-                        <input type="password" placeholder="Enter Password">
+                        <label for="returningPassword">Password:</label>
+                        <input id="returningPassword" name="returningPassword" type="password" placeholder="Enter Password">
 
-                        <button type="submit" class="button" style="margin-top:10px;">
-                            Login
-                        </button>
+                        <!-- This button launches an accessible modal for login confirmation -->
+                        <button id="openLoginModal" type="button" class="button" style="margin-top:10px;" aria-haspopup="dialog" aria-controls="loginModal">Login</button>
                     </form>
                 </div>
-            </div>
+            </section>
 
         </div>
-
     </div>
 </main>
 
+<!-- FOOTER (keeps original content/links) -->
 <footer>
     <div class="footer-container">
 
@@ -256,12 +340,175 @@
     </div>
 
     <p class="copyright">
-        © 2025 Your Fitness Website — All Rights Reserved.
+        © 2025 Steel Tracking — All Rights Reserved.
     </p>
 </footer>
 
+<!-- ============================
+     ACCESSIBLE LOGIN MODAL MARKUP
+     The modal is injected in the DOM and hidden until triggered.
+     ============================ -->
+<div id="modalBackdrop" class="modal-backdrop" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="loginModalTitle">
+    <div class="modal" role="document" aria-describedby="loginModalDesc">
+        <button class="close-btn" id="closeModal" aria-label="Close login dialog">&times;</button>
+        <h2 id="loginModalTitle">Enter Email & Password</h2>
+
+        <p id="loginModalDesc" style="margin-bottom:8px;">
+            Please enter your login credentials below and press <strong>Login</strong>.
+        </p>
+
+        <form id="modalLoginForm">
+            <label for="modalEmail">Email</label>
+            <input id="modalEmail" name="modalEmail" type="email" placeholder="you@example.com" required>
+
+            <label for="modalPassword">Password</label>
+            <input id="modalPassword" name="modalPassword" type="password" placeholder="Enter password" minlength="8" required>
+
+            <div style="display:flex; gap:10px; margin-top:12px; justify-content:flex-end;">
+                <button type="button" class="button" id="cancelModal">Cancel</button>
+                <button type="submit" class="button" id="modalSubmit">Login</button>
+            </div>
+
+            <div id="modalFeedback" role="status" aria-live="polite" style="margin-top:8px;"></div>
+        </form>
+    </div>
+</div>
+
+<!-- ============================
+     JAVASCRIPT:
+     - Client-side validation for signup form
+     - Accessible modal open/close and keyboard handling
+     - Lightweight, avoids external libs
+     ============================ -->
+<script>
+    // ---------------------------
+    // SIGNUP FORM - basic client validation
+    // ---------------------------
+    (function(){
+        const signupForm = document.getElementById('signupForm');
+        const signupFeedback = document.getElementById('signupFeedback');
+
+        signupForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Grab values
+            const name = document.getElementById('fullName').value.trim();
+            const email = document.getElementById('signupEmail').value.trim();
+            const pw = document.getElementById('signupPassword').value;
+            const confirm = document.getElementById('confirmPassword').value;
+            const goal = document.getElementById('fitnessGoals').value;
+
+            // Simple validations (client-side; server-side validation required for production)
+            if (!name) { signupFeedback.textContent = 'Please enter your name.'; document.getElementById('fullName').focus(); return; }
+            if (!email) { signupFeedback.textContent = 'Please enter your email.'; document.getElementById('signupEmail').focus(); return; }
+            if (pw.length < 8) { signupFeedback.textContent = 'Password must be at least 8 characters.'; document.getElementById('signupPassword').focus(); return; }
+            if (pw !== confirm) { signupFeedback.textContent = 'Passwords do not match.'; document.getElementById('confirmPassword').focus(); return; }
+            if (!goal) { signupFeedback.textContent = 'Please select a fitness goal.'; document.getElementById('fitnessGoals').focus(); return; }
+
+            // If passed, show success message (replace with server submission)
+            signupFeedback.style.color = '#d4ffd4';
+            signupFeedback.textContent = 'Success! Account created (demo).';
+            // In production: perform fetch/XHR to server here.
+            signupForm.reset();
+        });
+    })();
+
+    // ---------------------------
+    // MODAL: open / close logic + focus trapping
+    // ---------------------------
+    (function(){
+        const openBtn = document.getElementById('openLoginModal');
+        const backdrop = document.getElementById('modalBackdrop');
+        const closeBtn = document.getElementById('closeModal');
+        const cancelBtn = document.getElementById('cancelModal');
+        const modal = backdrop.querySelector('.modal');
+        const firstFocusableSelector = 'input, button, [href], select, textarea, [tabindex]:not([tabindex="-1"])';
+        let lastFocusedElement = null;
+
+        // Open modal
+        openBtn.addEventListener('click', function() {
+            lastFocusedElement = document.activeElement;
+            backdrop.style.display = 'flex';
+            backdrop.setAttribute('aria-hidden', 'false');
+            // Focus the first input in the modal
+            const focusable = modal.querySelectorAll(firstFocusableSelector);
+            if (focusable.length) focusable[0].focus();
+            // prevent page scrolling while modal open
+            document.body.style.overflow = 'hidden';
+        });
+
+        // Close modal helper
+        function closeModal() {
+            backdrop.style.display = 'none';
+            backdrop.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+            if (lastFocusedElement) lastFocusedElement.focus();
+        }
+
+        // Close handlers
+        closeBtn.addEventListener('click', closeModal);
+        cancelBtn.addEventListener('click', closeModal);
+
+        // Close on backdrop click (but not clicks inside modal)
+        backdrop.addEventListener('click', function(e) {
+            if (e.target === backdrop) closeModal();
+        });
+
+        // Keyboard: ESC to close, trap focus inside modal while open
+        document.addEventListener('keydown', function(e) {
+            if (backdrop.style.display !== 'flex') return;
+            if (e.key === 'Escape') {
+                e.preventDefault();
+                closeModal();
+                return;
+            }
+            // Focus trap
+            if (e.key === 'Tab') {
+                const focusable = modal.querySelectorAll(firstFocusableSelector);
+                if (focusable.length === 0) return;
+                const first = focusable[0];
+                const last = focusable[focusable.length - 1];
+                if (e.shiftKey) {
+                    if (document.activeElement === first) {
+                        e.preventDefault();
+                        last.focus();
+                    }
+                } else {
+                    if (document.activeElement === last) {
+                        e.preventDefault();
+                        first.focus();
+                    }
+                }
+            }
+        });
+
+        // Modal form submit - simple demo validation
+        const modalForm = document.getElementById('modalLoginForm');
+        const modalFeedback = document.getElementById('modalFeedback');
+
+        modalForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('modalEmail').value.trim();
+            const pw = document.getElementById('modalPassword').value;
+
+            if (!email) { modalFeedback.textContent = 'Please enter your email.'; return; }
+            if (pw.length < 8) { modalFeedback.textContent = 'Password must be at least 8 characters.'; return; }
+
+            // Demo success message; replace with real authentication in production
+            modalFeedback.textContent = 'Logging in (demo)…';
+            // Simulate closing modal after a short delay
+            setTimeout(() => {
+                modalFeedback.textContent = '';
+                closeModal();
+                alert('Login simulated (demo).'); // optional: remove for production
+            }, 700);
+        });
+
+    })();
+</script>
 </body>
 </html>
+
 
 
 
