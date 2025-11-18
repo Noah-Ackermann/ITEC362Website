@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Training Tracker - Home</title>
+    <title>Steel Tracking - Home</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/styles.css">
 
@@ -106,7 +106,8 @@
 <body>
 
 <header>
-    <nav>
+    <!-- Navigation links -->
+    <nav> 
         <a href="index.html"><img alt="logo" src="images/logo.png"></a>
         <ul class="nav">
             <li><a href="index.html">Home</a></li>
@@ -120,12 +121,23 @@
 <main>
     <div>
         <h1 style="margin:auto">Welcome Back!</h1>
+        <div id="quote-box" style="
+            margin: 30px auto;
+            padding: 20px;
+            max-width: 700px;
+            font-size: 26px;
+            text-align: center;
+            background: #3A7CA5;
+            border-left: 6px solid #141B41;
+            border-radius: 8px;">
+        </div>
         <div class="block">
+            <!-- Upcoming lifts this week -->
             <h2 style="margin:auto">This Week</h2>
             <hr>
             <div class="list">
                 <p>Mon</p>
-                <ul>
+                <ul contenteditable="true">
                     <li>Bench Press</li>
                     <li>Incline Press</li>
                     <li>Pec Fly</li>
@@ -137,7 +149,7 @@
             </div>
             <div class="list">
                 <p>Tue</p>
-                <ul>
+                <ul contenteditable="true">
                     <li>lat pulldown</li>
                     <li>mid row</li>
                     <li>low row</li>
@@ -148,7 +160,7 @@
             </div>
             <div class="list">
                 <p>Wed</p>
-                <ul>
+                <ul contenteditable="true">
                     <li>Curl up</li>
                     <li>incline curl</li>
                     <li>hammer curl</li>
@@ -159,7 +171,7 @@
             </div>
             <div class="list">
                 <p>Thr</p>
-                <ul>
+                <ul contenteditable="true">
                     <li>Hack squat</li>
                     <li>leg extension</li>
                     <li>hip thrust</li>
@@ -169,7 +181,7 @@
             </div>
             <div class="list">
                 <p>Fri</p>
-                <ul>
+                <ul contenteditable="true">
                     <li>leg raise</li>
                     <li>sit up</li>
                     <li>cable rotation</li>
@@ -178,13 +190,13 @@
             </div>
             <div class="list">
                 <p>Sat</p>
-                <ul>
+                <ul contenteditable="true">
                     <li>rest</li>
                 </ul>
             </div>
             <div class="list">
                 <p>Sun</p>
-                <ul>
+                <ul contenteditable="true">
                     <li>bench press</li>
                     <li>Incline Press</li>
                     <li>Pec Fly</li>
@@ -196,8 +208,19 @@
             </div>
             <div style="clear:both"></div>
         </div>
+        <div style="
+            margin: 30px auto;
+            padding: 20px;
+            max-width:300px;
+            text-align: center;
+            background: #3A7CA5;
+            border-left: 6px solid #141B41;
+            border-radius: 8px;">
+            <p style="font-size:30px">click to edit each day!</p>
+        </div>
+        <!-- Leaderboard -->
         <div class="block" style="margin-bottom:20px">
-            <h2 style="margin:auto">Gold Gainer</h2>
+            <h2 style="margin:auto;" >Gold Gainer</h2>
             <hr>
             <table>
                 <tr>
@@ -269,6 +292,73 @@
         © 2025 Your Fitness Website — All Rights Reserved.
     </p>
 </footer>
+<script>
+// lets you toggle the lifts for the days of the week
+document.querySelectorAll(".list p").forEach(title => {
+    title.style.cursor = "pointer";
+    title.addEventListener("click", () => {
+        title.nextElementSibling.classList.toggle("hidden");
+    });
+});
+
+// random quotes in question
+const quotes = [
+    "Success usually comes to those who are too busy to be looking for it.",
+    "The body achieves what the mind believes.",
+    "Every workout is progress, no matter how small.",
+    "Don’t limit your challenges — challenge your limits.",
+    "Strength doesn’t come from what you can do. It comes from overcoming what you thought you couldn’t.",
+    "Push yourself because no one else is going to do it for you.",
+];
+
+// picks a random quote and displays it
+const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+
+document.getElementById("quote-box").innerText = randomQuote;
+
+
+
+// Function to create a tooltip
+function createTooltip(element, message) {
+    // Remove any existing tooltip
+    let existingTooltip = document.querySelector('.tooltip');
+    if (existingTooltip) existingTooltip.remove();
+
+    // Create a new tooltip element
+    const tooltip = document.createElement('div');
+    tooltip.className = 'tooltip';
+    tooltip.innerText = message;
+
+    // Basic styling for tooltip
+    tooltip.style.position = 'absolute';
+    tooltip.style.backgroundColor = '#141B41';
+    tooltip.style.color = '#fff';
+    tooltip.style.padding = '5px 10px';
+    tooltip.style.borderRadius = '5px';
+    tooltip.style.fontSize = '14px';
+    tooltip.style.pointerEvents = 'none';
+    tooltip.style.zIndex = 1000;
+
+    // Position tooltip near the clicked element
+    const rect = element.getBoundingClientRect();
+    tooltip.style.top = `${rect.top - 30 + window.scrollY}px`;
+    tooltip.style.left = `${rect.left + window.scrollX}px`;
+
+    document.body.appendChild(tooltip);
+
+    // Remove the tooltip after 1 second
+    setTimeout(() => {
+        tooltip.remove();
+    }, 1000);
+}
+
+// Add the tooltip when editable text is clicked
+document.querySelectorAll('ul[contenteditable="true"] li').forEach(item => {
+    item.addEventListener('click', () => {
+        createTooltip(item, "Click again to edit this day!");
+    });
+});
+</script>
 
 </body>
 </html>
