@@ -1,15 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Steel Tracking - Exercises</title>
+    <!-- ===========================
+         META TAGS FOR SEO + MOBILE
+         =========================== -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="List of exercises and video references.">
+    <meta name="description" content="Browse exercises by muscle group and learn proper technique using video demonstrations.">
     <meta name="author" content="Pierce Cederquist">
+    <meta name="keywords" content="fitness, exercises, muscle groups, workouts, gym guide">
+    <title>Steel Tracking - Exercises</title>
+
+    <!-- ===========================
+         EXTERNAL STYLESHEET
+         (Contains core site styling)
+         =========================== -->
     <link rel="stylesheet" href="css/styles.css">
 
+    <!-- ===========================
+         INTERNAL / EMBEDDED CSS
+         Adds page-specific styles
+         Includes comments to explain use
+         =========================== -->
     <style>
-        /* ===== HEADER NAVIGATION STYLING ===== */
+
+        /* ===== NAVIGATION BAR STYLING ===== */
+        /* Styles specific to the header on this page */
         nav {
             display: flex;
             justify-content: space-between;
@@ -42,6 +58,7 @@
         }
 
         /* ===== FOOTER STYLING ===== */
+        /* Footer structure and spacing */
         footer {
             background-color: #141B41;
             color: white;
@@ -95,10 +112,13 @@
             opacity: 0.75;
         }
 
+        /* ===== MUSCLE GROUP BUTTONS ===== */
+        /* These filter the exercise categories */
         .muscle-group {
             text-align: center;
             margin: 20px 0;
         }
+
         .muscle-group button {
             background-color: #4682b4;
             border: none;
@@ -110,18 +130,22 @@
             cursor: pointer;
             font-size: 20px;
         }
+
         .muscle-group button:hover {
             background-color: #315f7f;
         }
 
+        /* Smooth scrolling for in-page navigation */
         html {
             scroll-behavior: smooth;
         }
 
+        /* ===== EXERCISE CARD DISPLAY ===== */
+        /* Each card uses a background image & contains the name + link */
         .exercise-card {
             position: relative;
-            width: 200px;
-            height: 200px;
+            width: 220px;
+            height: 220px;
             margin: 15px;
             display: inline-block;
             background-size: cover;
@@ -134,7 +158,7 @@
             overflow: hidden;
         }
 
-        .exercise-card .exercise-name {
+        .exercise-name {
             position: absolute;
             top: 0;
             left: 0;
@@ -142,17 +166,15 @@
             padding: 8px 0;
             font-weight: bold;
             font-size: 18px;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.55);
             color: white;
-            text-align: center;
         }
 
-        .exercise-card .learn-more {
+        .learn-more {
             position: absolute;
             bottom: 10px;
             left: 50%;
             transform: translateX(-50%);
-            display: inline-block;
             background-color: #4682b4;
             color: white;
             text-decoration: none;
@@ -161,7 +183,7 @@
             font-size: 16px;
         }
 
-        .exercise-card .learn-more:hover {
+        .learn-more:hover {
             background-color: #315f7f;
         }
     </style>
@@ -169,177 +191,227 @@
 
 <body>
 
+<!-- ===========================
+     PAGE HEADER + LOGO
+     =========================== -->
 <header>
-    <nav>
-        <a href="index.html"><img alt="logo" src="images/logo.png"></a>
-        <a href="index.html" style="color:white; font-size:40px; text-decoration:none; font-weight:bold;">Steel Tracking</a>
+    <nav aria-label="Primary Navigation">
+        <a href="index.html">
+            <img src="images/logo.png" alt="Steel Tracking Logo">
+        </a>
+
+        <a href="index.html" style="color:white; font-size:40px; text-decoration:none; font-weight:bold;">
+            Steel Tracking
+        </a>
+
+        <!-- Main navigation menu -->
         <ul class="nav">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="exercises.html">Exercises</a></li>
-            <li><a href="tracking.html">Tracking</a></li>
-            <li><a href="Sign-up.html">Sign-Up</a></li>
+            <li><a href="index.html" aria-label="Go to Home Page">Home</a></li>
+            <li><a href="exercises.html" aria-current="page">Exercises</a></li>
+            <li><a href="tracking.html" aria-label="Track Your Progress">Tracking</a></li>
+            <li><a href="Sign-up.html" aria-label="Sign Up for an Account">Sign-Up</a></li>
         </ul>
     </nav>
 </header>
 
 <main>
-    <div class="container">
 
-        <div style="display: flex; align-items: center; justify-content: center; gap: 20px; margin: 20px 0;">
-            <img src="images/logo.png" alt="logo" height="100">
-            <h1 style="margin:0;">Exercises</h1>
-            <img src="images/logo.png" alt="logo" height="100">
-        </div>
-
-        <h3 style="text-align:center;">Choose Muscle Group</h3>
-
-        <div class="muscle-group">
-            <button data-target="chest">Chest</button>
-            <button data-target="back">Back</button>
-            <button data-target="legs">Legs</button>
-            <button data-target="triceps">Triceps</button>
-            <button data-target="shoulders">Shoulders</button>
-            <button data-target="forearms">Forearms</button>
-            <button data-target="biceps">Biceps</button>
-        </div>
-
-        <h2>Exercise Gallery</h2>
-        <p style="text-align:center; font-size:18px; margin-top:-10px; margin-bottom:20px;">
-            Click learn more to see video demonstrations of each exercise
-        </p>
-        <!-- Chest -->
-        <div class="exercise-section" id="chest">
-            <h3>Chest</h3>
-            <div class="exercise-card" style="background-image: url('images/chest.jpg');">
-                <p class="exercise-name">Barbell Chest Press</p>
-                <a href="https://www.youtube.com/watch?v=ejI1Nlsul9k" target="_blank" class="learn-more">Learn More</a>
-            </div>
-            <div class="exercise-card" style="background-image: url('images/chest.jpg');">
-                <p class="exercise-name">Incline Dumbbell Press</p>
-                <a href="https://www.youtube.com/watch?v=jMQA3XtJSgo" target="_blank" class="learn-more">Learn More</a>
-            </div>
-            <div class="exercise-card" style="background-image: url('images/chest.jpg');">
-                <p class="exercise-name">Pec Fly</p>
-                <a href="https://www.youtube.com/watch?v=eGjt4lk6g34" target="_blank" class="learn-more">Learn More</a>
-            </div>
-        </div>
-
-        <!-- Back -->
-        <div class="exercise-section" id="back">
-            <h3>Back</h3>
-            <div class="exercise-card" style="background-image: url('images/back.jpg');">
-                <p class="exercise-name">Lat Pulldown</p>
-                <a href="https://www.youtube.com/watch?v=JGeRYIZdojU" target="_blank" class="learn-more">Learn More</a>
-            </div>
-            <div class="exercise-card" style="background-image: url('images/back.jpg');">
-                <p class="exercise-name">Seated Mid Row</p>
-                <a href="https://www.youtube.com/watch?v=UCXxvVItLoM" target="_blank" class="learn-more">Learn More</a>
-            </div>
-            <div class="exercise-card" style="background-image: url('images/back.jpg');">
-                <p class="exercise-name">Low Row</p>
-                <a href="https://www.youtube.com/watch?v=opjbouBmUWg" target="_blank" class="learn-more">Learn More</a>
-            </div>
-        </div>
-
-        <!-- Legs -->
-        <div class="exercise-section" id="legs">
-            <h3>Legs</h3>
-            <div class="exercise-card" style="background-image: url('images/legs.jpg');">
-                <p class="exercise-name">Hack Squat</p>
-                <a href="https://www.youtube.com/watch?v=rYgNArpwE7E" target="_blank" class="learn-more">Learn More</a>
-            </div>
-            <div class="exercise-card" style="background-image: url('images/legs.jpg');">
-                <p class="exercise-name">Leg Extension</p>
-                <a href="https://www.youtube.com/watch?v=4ZDm5EbiFI8" target="_blank" class="learn-more">Learn More</a>
-            </div>
-            <div class="exercise-card" style="background-image: url('images/legs.jpg');">
-                <p class="exercise-name">Back Squat</p>
-                <a href="https://www.youtube.com/watch?v=rrJIyZGlK8c" target="_blank" class="learn-more">Learn More</a>
-            </div>
-        </div>
-
-        <!-- Triceps -->
-        <div class="exercise-section" id="triceps">
-            <h3>Triceps</h3>
-            <div class="exercise-card" style="background-image: url('images/triceps.jpg');">
-                <p class="exercise-name">Skull Crusher</p>
-                <a href="https://www.youtube.com/watch?v=jO2Jl9eZpXk" target="_blank" class="learn-more">Learn More</a>
-            </div>
-            <div class="exercise-card" style="background-image: url('images/triceps.jpg');">
-                <p class="exercise-name">Tricep Pushdown</p>
-                <a href="https://www.youtube.com/watch?v=LXkCrxn3caQ" target="_blank" class="learn-more">Learn More</a>
-            </div>
-            <div class="exercise-card" style="background-image: url('images/triceps.jpg');">
-                <p class="exercise-name">Single Arm Extension</p>
-                <a href="https://www.youtube.com/watch?v=Cp_bShvMY4c" target="_blank" class="learn-more">Learn More</a>
-            </div>
-        </div>
-
-        <!-- Shoulders -->
-        <div class="exercise-section" id="shoulders">
-            <h3>Shoulders</h3>
-            <div class="exercise-card" style="background-image: url('images/shoulders.jpg');">
-                <p class="exercise-name">Overhead Press</p>
-                <a href="https://www.youtube.com/watch?v=OM23fjJB3-0" target="_blank" class="learn-more">Learn More</a>
-            </div>
-            <div class="exercise-card" style="background-image: url('images/shoulders.jpg');">
-                <p class="exercise-name">Lateral Raise</p>
-                <a href="https://www.youtube.com/watch?v=8aUc9snLOxU" target="_blank" class="learn-more">Learn More</a>
-            </div>
-            <div class="exercise-card" style="background-image: url('images/shoulders.jpg');">
-                <p class="exercise-name">Rear Delt Fly</p>
-                <a href="https://www.youtube.com/watch?v=nlkF7_2O_Lw" target="_blank" class="learn-more">Learn More</a>
-            </div>
-        </div>
-
-        <!-- Forearms -->
-        <div class="exercise-section" id="forearms">
-            <h3>Forearms</h3>
-            <div class="exercise-card" style="background-image: url('images/forearm.jpg');">
-                <p class="exercise-name">Wrist Curl</p>
-                <a href="https://www.youtube.com/watch?v=3VLTzIrnb5g" target="_blank" class="learn-more">Learn More</a>
-            </div>
-            <div class="exercise-card" style="background-image: url('images/forearm.jpg');">
-                <p class="exercise-name">Reverse Curl</p>
-                <a href="https://www.youtube.com/watch?v=kPXvDlFNb3s" target="_blank" class="learn-more">Learn More</a>
-            </div>
-            <div class="exercise-card" style="background-image: url('images/forearm.jpg');">
-                <p class="exercise-name">Farmer's Carry</p>
-                <a href="https://www.youtube.com/watch?v=8OtwXwrJizk" target="_blank" class="learn-more">Learn More</a>
-            </div>
-        </div>
-
-        <!-- Biceps -->
-        <div class="exercise-section" id="biceps">
-            <h3>Biceps</h3>
-            <div class="exercise-card" style="background-image: url('images/biceps.jpg');">
-                <p class="exercise-name">Bicep Curl</p>
-                <a href="https://www.youtube.com/watch?v=N5x5M1x1Gd0" target="_blank" class="learn-more">Learn More</a>
-            </div>
-            <div class="exercise-card" style="background-image: url('images/biceps.jpg');">
-                <p class="exercise-name">Hammer Curl</p>
-                <a href="https://www.youtube.com/watch?v=RIEMoYL_h1Y" target="_blank" class="learn-more">Learn More</a>
-            </div>
-            <div class="exercise-card" style="background-image: url('images/biceps.jpg');">
-                <p class="exercise-name">Preacher Curl</p>
-                <a href="https://www.youtube.com/watch?v=dgaJQXa0kbg" target="_blank" class="learn-more">Learn More</a>
-            </div>
-        </div>
-
+    <!-- ===========================
+         PAGE TITLE AREA
+         =========================== -->
+    <div style="display: flex; align-items: center; justify-content: center; gap: 20px; margin: 20px 0;">
+        <img src="images/logo.png" alt="Decorative Logo" height="100" loading="lazy">
+        <h1 style="margin:0;">Exercises</h1>
+        <img src="images/logo.png" alt="Decorative Logo" height="100" loading="lazy">
     </div>
+
+    <!-- ===========================
+         MUSCLE GROUP FILTER BUTTONS
+         =========================== -->
+    <h3 style="text-align:center;">Choose Muscle Group</h3>
+
+    <div class="muscle-group">
+        <!-- ARIA labels added for accessibility -->
+        <button data-target="chest" aria-label="Show chest exercises">Chest</button>
+        <button data-target="back" aria-label="Show back exercises">Back</button>
+        <button data-target="legs" aria-label="Show leg exercises">Legs</button>
+        <button data-target="triceps" aria-label="Show tricep exercises">Triceps</button>
+        <button data-target="shoulders" aria-label="Show shoulder exercises">Shoulders</button>
+        <button data-target="forearms" aria-label="Show forearm exercises">Forearms</button>
+        <button data-target="biceps" aria-label="Show bicep exercises">Biceps</button>
+    </div>
+
+    <!-- ===========================
+         INTRO TEXT ABOVE GALLERY
+         =========================== -->
+    <h2>Exercise Gallery</h2>
+    <p style="text-align:center; font-size:18px; margin-top:-10px; margin-bottom:20px;">
+        Click "Learn More" to watch demonstration videos for each exercise.
+    </p>
+
+    <!-- ===========================
+         ALL EXERCISE SECTIONS
+         Each section wrapped in semantic container
+         =========================== -->
+
+    <!-- ===== CHEST ===== -->
+    <section class="exercise-section" id="chest">
+        <h3>Chest</h3>
+
+        <div class="exercise-card" style="background-image: url('images/chest.jpg');">
+            <p class="exercise-name">Barbell Chest Press</p>
+            <a class="learn-more" href="https://www.youtube.com/watch?v=ejI1Nlsul9k" target="_blank">Learn More</a>
+        </div>
+
+        <div class="exercise-card" style="background-image: url('images/chest.jpg');">
+            <p class="exercise-name">Incline Dumbbell Press</p>
+            <a class="learn-more" href="https://www.youtube.com/watch?v=jMQA3XtJSgo" target="_blank">Learn More</a>
+        </div>
+
+        <div class="exercise-card" style="background-image: url('images/chest.jpg');">
+            <p class="exercise-name">Pec Fly</p>
+            <a class="learn-more" href="https://www.youtube.com/watch?v=eGjt4lk6g34" target="_blank">Learn More</a>
+        </div>
+    </section>
+
+    <!-- ===== BACK ===== -->
+    <section class="exercise-section" id="back">
+        <h3>Back</h3>
+
+        <div class="exercise-card" style="background-image: url('images/back.jpg');">
+            <p class="exercise-name">Lat Pulldown</p>
+            <a class="learn-more" href="https://www.youtube.com/watch?v=JGeRYIZdojU" target="_blank">Learn More</a>
+        </div>
+
+        <div class="exercise-card" style="background-image: url('images/back.jpg');">
+            <p class="exercise-name">Seated Mid Row</p>
+            <a class="learn-more" href="https://www.youtube.com/watch?v=UCXxvVItLoM" target="_blank">Learn More</a>
+        </div>
+
+        <div class="exercise-card" style="background-image: url('images/back.jpg');">
+            <p class="exercise-name">Low Row</p>
+            <a class="learn-more" href="https://www.youtube.com/watch?v=opjbouBmUWg" target="_blank">Learn More</a>
+        </div>
+    </section>
+
+    <!-- ===== LEGS ===== -->
+    <section class="exercise-section" id="legs">
+        <h3>Legs</h3>
+
+        <div class="exercise-card" style="background-image: url('images/legs.jpg');">
+            <p class="exercise-name">Hack Squat</p>
+            <a class="learn-more" href="https://www.youtube.com/watch?v=rYgNArpwE7E" target="_blank">Learn More</a>
+        </div>
+
+        <div class="exercise-card" style="background-image: url('images/legs.jpg');">
+            <p class="exercise-name">Leg Extension</p>
+            <a class="learn-more" href="https://www.youtube.com/watch?v=4ZDm5EbiFI8" target="_blank">Learn More</a>
+        </div>
+
+        <div class="exercise-card" style="background-image: url('images/legs.jpg');">
+            <p class="exercise-name">Back Squat</p>
+            <a class="learn-more" href="https://www.youtube.com/watch?v=rrJIyZGlK8c" target="_blank">Learn More</a>
+        </div>
+    </section>
+
+    <!-- ===== TRICEPS ===== -->
+    <section class="exercise-section" id="triceps">
+        <h3>Triceps</h3>
+
+        <div class="exercise-card" style="background-image: url('images/triceps.jpg');">
+            <p class="exercise-name">Skull Crusher</p>
+            <a class="learn-more" href="https://www.youtube.com/watch?v=jO2Jl9eZpXk" target="_blank">Learn More</a>
+        </div>
+
+        <div class="exercise-card" style="background-image: url('images/triceps.jpg');">
+            <p class="exercise-name">Tricep Pushdown</p>
+            <a class="learn-more" href="https://www.youtube.com/watch?v=LXkCrxn3caQ" target="_blank">Learn More</a>
+        </div>
+
+        <div class="exercise-card" style="background-image: url('images/triceps.jpg');">
+            <p class="exercise-name">Single Arm Extension</p>
+            <a class="learn-more" href="https://www.youtube.com/watch?v=Cp_bShvMY4c" target="_blank">Learn More</a>
+        </div>
+    </section>
+
+    <!-- ===== SHOULDERS ===== -->
+    <section class="exercise-section" id="shoulders">
+        <h3>Shoulders</h3>
+
+        <div class="exercise-card" style="background-image: url('images/shoulders.jpg');">
+            <p class="exercise-name">Overhead Press</p>
+            <a class="learn-more" href="https://www.youtube.com/watch?v=OM23fjJB3-0" target="_blank">Learn More</a>
+        </div>
+
+        <div class="exercise-card" style="background-image: url('images/shoulders.jpg');">
+            <p class="exercise-name">Lateral Raise</p>
+            <a class="learn-more" href="https://www.youtube.com/watch?v=8aUc9snLOxU" target="_blank">Learn More</a>
+        </div>
+
+        <div class="exercise-card" style="background-image: url('images/shoulders.jpg');">
+            <p class="exercise-name">Rear Delt Fly</p>
+            <a class="learn-more" href="https://www.youtube.com/watch?v=nlkF7_2O_Lw" target="_blank">Learn More</a>
+        </div>
+    </section>
+
+    <!-- ===== FOREARMS ===== -->
+    <section class="exercise-section" id="forearms">
+        <h3>Forearms</h3>
+
+        <div class="exercise-card" style="background-image: url('images/forearm.jpg');">
+            <p class="exercise-name">Wrist Curl</p>
+            <a class="learn-more" href="https://www.youtube.com/watch?v=3VLTzIrnb5g" target="_blank">Learn More</a>
+        </div>
+
+        <div class="exercise-card" style="background-image: url('images/forearm.jpg');">
+            <p class="exercise-name">Reverse Curl</p>
+            <a class="learn-more" href="https://www.youtube.com/watch?v=kPXvDlFNb3s" target="_blank">Learn More</a>
+        </div>
+
+        <div class="exercise-card" style="background-image: url('images/forearm.jpg');">
+            <p class="exercise-name">Farmer's Carry</p>
+            <a class="learn-more" href="https://www.youtube.com/watch?v=8OtwXwrJizk" target="_blank">Learn More</a>
+        </div>
+    </section>
+
+    <!-- ===== BICEPS ===== -->
+    <section class="exercise-section" id="biceps">
+        <h3>Biceps</h3>
+
+        <div class="exercise-card" style="background-image: url('images/biceps.jpg');">
+            <p class="exercise-name">Bicep Curl</p>
+            <a class="learn-more" href="https://www.youtube.com/watch?v=N5x5M1x1Gd0" target="_blank">Learn More</a>
+        </div>
+
+        <div class="exercise-card" style="background-image: url('images/biceps.jpg');">
+            <p class="exercise-name">Hammer Curl</p>
+            <a class="learn-more" href="https://www.youtube.com/watch?v=RIEMoYL_h1Y" target="_blank">Learn More</a>
+        </div>
+
+        <div class="exercise-card" style="background-image: url('images/biceps.jpg');">
+            <p class="exercise-name">Preacher Curl</p>
+            <a class="learn-more" href="https://www.youtube.com/watch?v=dgaJQXa0kbg" target="_blank">Learn More</a>
+        </div>
+    </section>
+
 </main>
 
+<!-- ===========================
+     FOOTER
+     =========================== -->
 <footer>
     <div class="footer-container">
 
+        <!-- About section -->
         <div class="footer-section">
             <h3>About Us</h3>
             <p>
-                Our mission is to provide users with accurate fitness guidance, exercise demonstrations,
-                and tools to track their progress and reach their goals.
+                Our mission is to provide accurate fitness guidance, video demonstrations, 
+                and tools to help you track progress and reach your goals.
             </p>
         </div>
 
+        <!-- Signup CTA -->
         <div class="footer-section">
             <h3>Start Your Journey</h3>
             <a class="footer-signup-btn" href="Sign-up.html">Sign Up Now</a>
@@ -348,22 +420,28 @@
     </div>
 
     <p class="copyright">
-        © 2025 Your Fitness Website — All Rights Reserved.
+        © 2025 Steel Tracking — All Rights Reserved.
     </p>
 </footer>
 
+<!-- ===========================
+     JAVASCRIPT INTERACTIVITY
+     Filters exercise sections
+     =========================== -->
 <script>
     const buttons = document.querySelectorAll('.muscle-group button');
     const sections = document.querySelectorAll('.exercise-section');
 
     let activeGroup = null;
 
+    /* Button click = show only selected muscle group section */
     buttons.forEach(button => {
         button.addEventListener('click', () => {
             const target = button.getAttribute('data-target');
 
+            // Toggle logic: clicking same button resets the view
             if (activeGroup === target) {
-                sections.forEach(section => section.style.display = "block");
+                sections.forEach(sec => sec.style.display = "block");
                 activeGroup = null;
                 return;
             }
@@ -379,6 +457,8 @@
 
 </body>
 </html>
+
+
 
 
 
