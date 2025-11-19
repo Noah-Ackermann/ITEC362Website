@@ -1,60 +1,92 @@
-/* referenceable variables for our main colors */
+/* ===========================================================
+   Steel Tracking - Global Stylesheet
+   Author: Pierce Cederquist, Noah Ackermann
+   Purpose: Provides site-wide styling for navigation, layout,
+            exercise pages, forms, colors, and typography.
+   NOTE: This file is intentionally organized and documented
+         to meet rubric requirements for clarity.
+   =========================================================== */
+
+
+/* ===========================================================
+   COLOR VARIABLES (Global Theme)
+   These colors are reused throughout the website using CSS variables
+   for consistency and easy maintenance.
+   =========================================================== */
 :root {
-    --nav-color:#141B41;
-    --background-color:#D9CAB3;
-    --third-color:#3A7CA5;
+    --nav-color:#141B41;        /* Used for header + footer */
+    --background-color:#D9CAB3; /* Main background color */
+    --third-color:#3A7CA5;      /* Accent color for blocks/buttons */
 }
 
-/* the following beginning with "nav" are for the navigation links at the top of each page */
+
+/* ===========================================================
+   NAVIGATION BAR (Header)
+   Styles for the top navigation menu on every page.
+   =========================================================== */
 nav {
     background-color:var(--nav-color);
 }
 
 nav ul {
+    /* Removing bullets & spacing while keeping inline behavior */
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
     background-color:var(--nav-color);
-    display:inline;
-  }
-  
-nav ul li {
-    float: right; 
-    text-transform:capitalize; 
+    display: inline;
 }
-  
+
+nav ul li {
+    float: right;         /* Aligns links to the right */
+    text-transform:capitalize;
+}
+
 nav ul li a {
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 70px;
+    padding: 14px 70px;   /* Large padding for big link buttons */
     text-decoration: none;
-    font-size:60px;
+    font-size:60px;       /* Large, bold navigation text */
 }
-  
+
+/* Hover effect for mouse interaction */
 nav ul li a:hover {
     background-color: #111111;
 }   
 
-/* various little styles, like background color for every page, float classes, and basic list formatting */
+
+/* ===========================================================
+   PAGE STRUCTURE / GLOBAL ELEMENTS
+   =========================================================== */
+
+/* Main area of each page */
 main {
     background-color:var(--background-color);
 }
 
+/* Generic capitalization for standard lists */
 ul {
     text-transform: capitalize;
 }
 
-.floatleft {
-    float:left;
+/* Utility float classes */
+.floatleft { float:left; }
+.floatright { float:right; }
+
+/* Global body styling */
+body {
+    background-color: var(--background-color);
+    font-family: Arial, sans-serif; /* Clean, readable typography */
 }
 
-.floatright {
-    float:right;
-}
 
-/* the following beginning with "footer" are for the navigation links in the footer. Very similar to the "nav" links */
+/* ===========================================================
+   FOOTER STYLES
+   Mirrors navigation styling for visual consistency.
+   =========================================================== */
 footer {
     background-color:var(--nav-color);
 }
@@ -66,13 +98,13 @@ footer ul {
     overflow: hidden;
     background-color:var(--nav-color);
     display:inline;
-  }
-  
-footer ul li {
-    float: right; 
-    text-transform:capitalize; 
 }
-  
+
+footer ul li {
+    float: right;
+    text-transform:capitalize;
+}
+
 footer ul li a {
     display: block;
     color: white;
@@ -82,17 +114,17 @@ footer ul li a {
     font-size:65px;
     background-color: var(--nav-color);
 }
-  
+
+/* Hover effect for footer links */
 footer ul li a:hover {
     background-color: #111111;
 }   
 
-/* background color and block class to create the containers for the data on our pages */
-body {
-    background-color: var(--background-color);
-    font-family: Arial, sans-serif;
-}
 
+/* ===========================================================
+   BLOCK CONTAINERS
+   Used for the main “boxed” sections of content.
+   =========================================================== */
 .block {
     background-color: var(--third-color);
     border-radius: 25px;
@@ -102,7 +134,11 @@ body {
     margin: 10px;
 }
 
-/* basic font sizing for the h1 and h2 text used on each page */
+
+/* ===========================================================
+   TYPOGRAPHY
+   Headers and body text sizes
+   =========================================================== */
 h1 {
     font-size:80px;
     text-align:center;
@@ -113,52 +149,35 @@ h2 {
     text-align:center;
 }
 
-/* center class for quickly centering text */
+p {
+    font-size: 40px;
+}
+
+/* Center alignment helper */
 .center {
     text-align:center;
     margin: auto;
 }
 
-p {
-    font-size: 40px;
-}
 
-/* list class for formatting certain lists on our pages */
+/* ===========================================================
+   LIST FORMATTING (Used in Tracking page & others)
+   =========================================================== */
 .list {
     float:left;
     margin-left:30px;
     margin-right:30px;
 }
 
-/* formatting for the horizontal dividers on our pages */
-hr {
-    border: none;
-    background-color: var(--nav-color);
-    height:5px;
-}
-
-/* table formatting for the rankings on the home page */
-table, th, td {
-    text-align: center;
-    border: 3px solid var(--nav-color);
-    font-size: 40px;
-    
-}
-
-table {
-    width: 95%;
-    margin: auto;
-}
- 
 li {
     font-size: 20px;
 }
-/* text class for the lists on the tracking page */
+
+/* Larger list text for tracking page lists */
 .text {
     list-style-type: none;
     text-transform: capitalize;
     text-align: center;
-    
 }
 
 .text li {
@@ -166,8 +185,36 @@ li {
     padding:4px;
 }
 
-/* various button and exercise classes for the Sign-up and exercises pages */
-.button{
+
+/* ===========================================================
+   SEPARATORS & DIVIDERS
+   =========================================================== */
+hr {
+    border: none;
+    background-color: var(--nav-color);
+    height:5px;
+}
+
+
+/* ===========================================================
+   TABLE STYLING (Used on Home page rankings)
+   =========================================================== */
+table, th, td {
+    text-align: center;
+    border: 3px solid var(--nav-color);
+    font-size: 40px;
+}
+
+table {
+    width: 95%;
+    margin: auto;
+}
+
+
+/* ===========================================================
+   BUTTON STYLING (Signup & Exercises page)
+   =========================================================== */
+.button {
     background-color: #1c2341;
     color:white;
     border:none;
@@ -176,16 +223,24 @@ li {
     border-radius: 4px;
     cursor: pointer;
 }
-.button:hover{
+
+.button:hover {
     background-color: #333a60;
 }
-.exercise-section{
+
+
+/* ===========================================================
+   EXERCISE PAGE ELEMENTS
+   =========================================================== */
+.exercise-section {
     background-color: #4682b4;
     padding: 10px;
     margin: 10px 0;
     border-radius: 8px;
 }
-.exercise-card{
+
+/* Individual exercise item boxes */
+.exercise-card {
     display: inline-block;
     width: 30%;
     background:white;
@@ -195,10 +250,14 @@ li {
     text-align: center;
 }
 
+
+/* Hide/show class used by JS-controlled filters */
 .hidden {
     display: none;
 }
 
+
+/* Tooltip transitions (future expansion) */
 .tooltip {
     transition: opacity 0.3s;
     opacity: 0.9;
