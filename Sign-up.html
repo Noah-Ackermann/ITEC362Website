@@ -32,11 +32,11 @@
 
         /* ---------- Footer ---------- */
         footer {
-            background-color: #141B41; color: white; padding: 40px; margin-top: 40px;
+            background-color: #141B41; color: white; padding: 20px 0; margin-top: 0;
         }
         .footer-container {
             max-width: 1200px; margin: auto; display:flex; justify-content:space-between;
-            align-items:flex-start; flex-wrap:wrap; gap:30px;
+            align-items:flex-start; flex-wrap:wrap; gap:20px;
         }
         .footer-section { flex:1; min-width:250px; }
         .footer-signup-btn { display:inline-block; padding:12px 25px; background-color:#4682b4; color:white; text-decoration:none; border-radius:6px; }
@@ -47,7 +47,6 @@
             background-size: cover; background-position: center; background-repeat: no-repeat;
             padding: 50px 0; position: relative;
         }
-        /* Overlay so forms remain legible on top of background */
         main::before {
             content: ""; position: absolute; top:0; left:0; width:100%; height:100%;
             background-color: rgba(0,0,0,0.55); z-index:1;
@@ -57,15 +56,17 @@
         /* ---------- Forms & Layout---------- */
         .split-wrapper {
             display:flex; gap:40px; justify-content:center; align-items:flex-start; margin-top:20px;
-            flex-wrap:wrap; /* responsive fallback */
+            flex-wrap:wrap; 
         }
         .split-column { display:flex; flex-direction:column; align-items:center; }
-        h1 {
-            color:white; background-color: rgba(0,0,0,0.6); padding:10px 30px;
-            border-radius:8px; text-shadow:1px 1px 4px black; margin-bottom:10px;
+
+        /* Headings inside main content */
+        main h1 {
+            color:white; background-color: rgba(0,0,0,0.6); padding:8px 20px;
+            border-radius:8px; text-shadow:1px 1px 4px black; margin-bottom:8px;
+            font-size:28px;
         }
 
-        /* Form container visual style  */
         .form-container {
             background-color: rgba(70,130,180,0.9); padding:20px; width:300px; border-radius:8px;
             color: white; text-align:left; box-shadow: 0 4px 8px rgba(0,0,0,0.3); margin:0 auto;
@@ -75,7 +76,6 @@
             width:100%; padding:8px; margin:5px 0; border:none; border-radius:4px;
         }
 
-        /* Buttons  */
         .button {
             display:inline-block; padding:10px 16px; background-color:#1e73be; color:white;
             border:none; border-radius:6px; cursor:pointer; font-size:16px; margin-top:8px;
@@ -83,9 +83,8 @@
         .button:hover { filter:brightness(0.95); }
         .button:focus { outline: 3px solid #ffd54f; outline-offset:2px; }
 
-        /* ---------- Accessible Modal Styles ---------- */
         .modal-backdrop {
-            display:none; /* toggled by JS */
+            display:none; 
             position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:1000;
             align-items:center; justify-content:center; padding:20px;
         }
@@ -99,7 +98,6 @@
             position:absolute; right:12px; top:8px; cursor:pointer;
         }
 
-        /* Small screens adjustments */
         @media (max-width:700px) {
             .split-wrapper { flex-direction:column; gap:20px; }
             .form-container { width:92%; }
@@ -109,18 +107,10 @@
     </style>
 </head>
 <body>
-<!-- ============================
-     PAGE HEADER:
-     ============================ -->
 <header>
     <nav aria-label="Primary Navigation">
-        <!-- Logo:-->
         <a href="index.html"><img src="images/logo.png" alt="Steel Tracking logo" loading="lazy"></a>
-
-        <!-- Site title -->
         <a href="index.html" style="color:white; font-size:40px; text-decoration:none; font-weight:bold;" aria-label="Steel Tracking homepage">Steel Tracking</a>
-
-        <!-- Main nav: uses role/menu for improved semantics -->
         <ul class="nav" role="menubar" aria-label="Main menu">
             <li role="none"><a role="menuitem" href="index.html">Home</a></li>
             <li role="none"><a role="menuitem" href="exercises.html">Exercises</a></li>
@@ -130,42 +120,21 @@
     </nav>
 </header>
 
-<!-- ============================
-     MAIN: background + split forms
-     ============================ -->
 <main>
     <div class="container">
         <div class="split-wrapper" aria-live="polite">
-            <!-- ============================
-                 LEFT: CREATE ACCOUNT
-                 ============================ -->
             <section class="split-column" aria-labelledby="createAccountHeading">
                 <h1 id="createAccountHeading">Create Account</h1>
-
                 <div class="form-container" role="region" aria-labelledby="createAccountHeading">
-                    <!--
-                        signupForm:
-                        - uses HTML5 validation attributes 
-                        - JS (password match)
-                        -->
                     <form id="signupForm" novalidate>
-                        <!-- Name (label connected to input via for/id) -->
                         <label for="fullName">Name:</label>
                         <input id="fullName" name="fullName" type="text" placeholder="Enter First and Last Name" required aria-required="true">
-
-                        <!-- Email (built-in validation) -->
                         <label for="signupEmail">Email:</label>
                         <input id="signupEmail" name="email" type="email" placeholder="Enter a valid email" required aria-required="true">
-
-                        <!-- Password with minlength for basic strength -->
                         <label for="signupPassword">Password:</label>
                         <input id="signupPassword" name="password" type="password" placeholder="Enter password (min 8 chars)" minlength="8" required aria-required="true">
-
-                        <!-- Confirm password -->
                         <label for="confirmPassword">Confirm Password:</label>
                         <input id="confirmPassword" name="confirmPassword" type="password" placeholder="Re-enter password" minlength="8" required aria-required="true">
-
-                        <!-- Select for fitness goals -->
                         <label for="fitnessGoals">Fitness Goals:</label>
                         <select id="fitnessGoals" name="fitnessGoals" required aria-required="true">
                             <option value="">Select a goal</option>
@@ -173,32 +142,20 @@
                             <option value="muscle-gain">Muscle Gain</option>
                             <option value="general-fitness">General Fitness</option>
                         </select>
-
-                        <!-- Submit button with ARIA label  -->
                         <button type="submit" class="button" aria-label="Create account">Create Account</button>
-
-                        <!-- Area for validation feedback (populated by JS) -->
                         <div id="signupFeedback" role="status" aria-live="assertive" style="margin-top:8px;"></div>
                     </form>
                 </div>
             </section>
 
-            <!-- ============================
-                 RETURNING USERS 
-                 ============================ -->
             <section class="split-column" aria-labelledby="returningUsersHeading">
                 <h1 id="returningUsersHeading">Returning Users</h1>
-
                 <div class="form-container" role="region" aria-labelledby="returningUsersHeading">
-                    <!-- Small inline returning form -->
                     <form id="returningForm" onsubmit="return false;">
                         <label for="returningEmail">Email:</label>
                         <input id="returningEmail" name="returningEmail" type="email" placeholder="Enter Email">
-
                         <label for="returningPassword">Password:</label>
                         <input id="returningPassword" name="returningPassword" type="password" placeholder="Enter Password">
-
-                        <!-- This launches an accessible modal dialog -->
                         <button id="openLoginModal" type="button" class="button" style="margin-top:10px;"
                                 aria-haspopup="dialog" aria-controls="modalBackdrop" aria-label="Open login dialog">Login</button>
                     </form>
@@ -208,13 +165,8 @@
     </div>
 </main>
 
-<!-- ============================
-     FOOTER 
-     ============================ -->
 <footer>
     <div class="footer-container">
-
-        <!-- About section -->
         <div class="footer-section">
             <h3>About Us</h3>
             <p>
@@ -222,57 +174,38 @@
                 and tools to help you track progress and reach your goals.
             </p>
         </div>
-
-        <!-- Signup CTA -->
         <div class="footer-section">
             <h3>Start Your Journey</h3>
             <a class="footer-signup-btn" href="Sign-up.html">Sign Up Now</a>
         </div>
-
     </div>
-
     <p class="copyright">
         © 2025 Steel Tracking — All Rights Reserved.
     </p>
 </footer>
 
-<!-- ============================
-     ACCESSIBLE LOGIN MODAL
-     - role="dialog" aria-modal="true"
-     - focus trap + ESC handling in JS below
-     ============================ -->
 <div id="modalBackdrop" class="modal-backdrop" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="loginModalTitle">
     <div class="modal" role="document" aria-describedby="loginModalDesc">
         <button class="close-btn" id="closeModal" aria-label="Close login dialog">&times;</button>
         <h2 id="loginModalTitle">Enter Email &amp; Password</h2>
         <p id="loginModalDesc">Please enter your login credentials below and press <strong>Login</strong>.</p>
-
         <form id="modalLoginForm">
             <label for="modalEmail">Email</label>
             <input id="modalEmail" name="modalEmail" type="email" placeholder="you@example.com" required>
-
             <label for="modalPassword">Password</label>
             <input id="modalPassword" name="modalPassword" type="password" placeholder="Enter password" minlength="8" required>
-
             <div style="display:flex; gap:10px; margin-top:12px; justify-content:flex-end;">
                 <button type="button" class="button" id="cancelModal">Cancel</button>
                 <button type="submit" class="button" id="modalSubmit">Login</button>
             </div>
-
             <div id="modalFeedback" role="status" aria-live="polite" style="margin-top:8px;"></div>
         </form>
     </div>
 </div>
 
-<!-- ============================
-     JAVASCRIPT:
-     - Signup validation (password match)
-     - Accessible modal open/close + focus trap + ESC handling
-     ============================ -->
 <script>
 /* =========================
    SIGNUP FORM VALIDATION
-   - client-side friendly checks
    ========================= */
 (function() {
     const signupForm = document.getElementById('signupForm');
@@ -280,8 +213,7 @@
 
     signupForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        feedback.style.color = '#ffdede'; // reset color for errors
-
+        feedback.style.color = '#ffdede';
         const name = document.getElementById('fullName').value.trim();
         const email = document.getElementById('signupEmail').value.trim();
         const pw = document.getElementById('signupPassword').value;
@@ -294,7 +226,6 @@
         if (pw !== confirm) { feedback.textContent = 'Passwords do not match.'; document.getElementById('confirmPassword').focus(); return; }
         if (!goal) { feedback.textContent = 'Please select a fitness goal.'; document.getElementById('fitnessGoals').focus(); return; }
 
-        // Success (demo). In production, replace with server request.
         feedback.style.color = '#d4ffd4';
         feedback.textContent = 'Success! Account created (demo).';
         signupForm.reset();
@@ -303,8 +234,6 @@
 
 /* =========================
    ACCESSIBLE MODAL LOGIC
-   - open/close, focus trap, ESC key
-   - returns focus to the previously focused element
    ========================= */
 (function() {
     const openBtn = document.getElementById('openLoginModal');
@@ -321,9 +250,7 @@
         lastFocused = document.activeElement;
         backdrop.style.display = 'flex';
         backdrop.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden'; // prevent background scrolling
-
-        // Focus first focusable element inside modal
+        document.body.style.overflow = '';
         const focusables = modal.querySelectorAll(focusableSelector);
         if (focusables.length) focusables[0].focus();
     }
@@ -339,17 +266,11 @@
     openBtn.addEventListener('click', openModal);
     closeBtn.addEventListener('click', closeModal);
     cancelBtn.addEventListener('click', closeModal);
+    backdrop.addEventListener('click', function(e) { if (e.target === backdrop) closeModal(); });
 
-    // Close on backdrop click 
-    backdrop.addEventListener('click', function(e) {
-        if (e.target === backdrop) closeModal();
-    });
-
-    // Keyboard handling: ESC to close, Tab to trap focus
     document.addEventListener('keydown', function(e) {
         if (backdrop.style.display !== 'flex') return;
         if (e.key === 'Escape') { e.preventDefault(); closeModal(); return; }
-
         if (e.key === 'Tab') {
             const focusables = modal.querySelectorAll(focusableSelector);
             if (focusables.length === 0) return;
@@ -359,20 +280,16 @@
         }
     });
 
-    // Simple modal login submit 
     modalForm.addEventListener('submit', function(e) {
         e.preventDefault();
         const email = document.getElementById('modalEmail').value.trim();
         const pw = document.getElementById('modalPassword').value;
-
         if (!email) { modalFeedback.textContent = 'Please enter your email.'; return; }
         if (pw.length < 8) { modalFeedback.textContent = 'Password must be at least 8 characters.'; return; }
-
         modalFeedback.textContent = 'Logging in (demo)…';
         setTimeout(function() {
             modalFeedback.textContent = '';
             closeModal();
-            // Demo success. Replace with real authentication in production.
             alert('Login simulated (demo).');
         }, 700);
     });
@@ -380,6 +297,8 @@
 </script>
 </body>
 </html>
+
+
 
 
 
